@@ -1,2 +1,5 @@
-/* За общи профили и синхронизирани материали: направи проект в supabase.com и постави Project URL и anon/public key. Не използвай service_role key тук. */
-window.APP_CONFIG={SUPABASE_URL:"",SUPABASE_ANON_KEY:""};
+
+window.APP_CONFIG = {
+  SUPABASE_URL: "https://vrkbzjogwobrwbllnuaw.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_nHrcpYJW0F79IFsSX6q4qA_JKKFPzJN"
+};
