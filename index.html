@@ -297,8 +297,57 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
   });
   window.addEventListener("hashchange",()=>goToPage(location.hash.slice(1)));
   goToPage(location.hash.slice(1)||"home");
+
+  renderExtra();
+
+  // Свързваме бутоните с формулярите за добавяне
+  document.getElementById("quickLesson").onclick = () => {
+    const title = prompt("Заглавие на урока:");
+    if (!title || !title.trim()) return;
+    const subject = prompt("Предмет:", "Въведение в професията") || "";
+    const grade = prompt("Клас:", "8. клас") || "";
+    const notes = prompt("Цели и бележки:") || "";
+    const d = getData();
+    d.lessons.push({title:title.trim(),subject,grade,notes});
+    localStorage.setItem(dataKey, JSON.stringify(d));
+    renderExtra();
+    alert("Урокът е запазен!");
+  };
+
+  document.getElementById("quickTask").onclick = () => {
+    const title = prompt("Каква е задачата?");
+    if (!title || !title.trim()) return;
+    const date = prompt("Срок (ГГГГ-ММ-ДД):") || "";
+    const priority = prompt("Приоритет: Висок, Среден или Нисък", "Среден") || "Среден";
+    const d = getData();
+    d.tasks.push({title:title.trim(),date,priority,done:false});
+    localStorage.setItem(dataKey, JSON.stringify(d));
+    renderExtra();
+    alert("Задачата е запазена!");
+  };
+
+  document.getElementById("quickEvent").onclick = () => {
+    const title = prompt("Наименование на събитието:");
+    if (!title || !title.trim()) return;
+    const date = prompt("Дата (ГГГГ-ММ-ДД):");
+    const notes = prompt("Бележки:") || "";
+    const d = getData();
+    d.events.push({title:title.trim(),date:date||"",notes});
+    localStorage.setItem(dataKey, JSON.stringify(d));
+    renderExtra();
+    alert("Събитието е запазено!");
+  };
+
+  document.getElementById("addLesson").onclick = () =>
+    document.getElementById("quickLesson").click();
+  document.getElementById("addTask").onclick = () =>
+    document.getElementById("quickTask").click();
+  document.getElementById("addEvent").onclick = () =>
+    document.getElementById("quickEvent").click();
+
   renderExtra();
 })();
+
 </script>
 </body>
 </html>
