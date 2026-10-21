@@ -5,67 +5,68 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#17324d">
-<title>Моят учителски кабинет | Строителна катедра</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Моят учителски кабинет</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{--navy:#17324d;--sand:#e8c18b;--cream:#f8f4eb;--gold:#b98743;--muted:#738092;--line:#e6e1d8;--white:#fff}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--cream);color:#263443;font-family:"DM Sans",sans-serif}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-header{background:#fbf8f1;padding:18px 4%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+header{background:#fbf8f1;padding:18px 4%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:13px;color:var(--navy);text-decoration:none}
 .brand-mark{font-size:35px;color:var(--gold)}
 .brand strong{display:block;font:800 22px Manrope,sans-serif}
 .brand small{display:block;color:var(--muted);margin-top:4px}
-#loginOpen{border:0;border-radius:12px;padding:14px 20px;background:var(--navy);color:white;font-weight:700}
+.primary{background:var(--navy);color:white;border:0;border-radius:12px;padding:13px 18px;font-weight:700}
+.secondary{border:0;background:#eee8dc;color:var(--navy);border-radius:10px;padding:11px 14px;font-weight:700}
 nav{display:flex;gap:7px;flex-wrap:wrap;background:#f0e8d9;padding:8px;border-radius:16px;margin:12px 4% 0}
 nav a{padding:12px 15px;text-decoration:none;color:var(--navy);border-radius:12px;font-weight:600;font-size:14px}
-nav a:first-child,nav a:hover{background:#e5b56e}
+nav a.active,nav a:hover{background:#e5b56e}
 main{max-width:1500px;margin:auto;padding:28px 4%}
+.page{display:none}
+.page.active{display:block;animation:appear .18s ease}
+@keyframes appear{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 .welcome{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:8px 0 24px}
 .eyebrow{font-size:12px;letter-spacing:2px;font-weight:800;color:#8b795e}
 h1{font:800 clamp(30px,4vw,44px) Manrope,sans-serif;color:var(--navy);margin:8px 0}
-.primary{background:var(--navy);color:#fff;border:0;border-radius:12px;padding:15px 20px;font-weight:700}
-.banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px;border-radius:20px;background:linear-gradient(110deg,#f5e5cc,#f7f4ec 55%,#d5e4ed);border:1px solid #eadfcd;margin-bottom:24px;overflow:hidden}
+.banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px;border-radius:20px;background:linear-gradient(110deg,#f5e5cc,#f7f4ec 55%,#d5e4ed);border:1px solid #eadfcd;margin-bottom:24px}
 .banner h2{font:800 clamp(22px,3vw,32px) Manrope,sans-serif;color:var(--navy);margin:12px 0}
 .banner p{color:#647184;line-height:1.7;margin-bottom:0}
-.blueprint{font-size:78px;color:#a8bfce;opacity:.8}
+.blueprint{font-size:78px;color:#a8bfce}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 38px}
-.stat{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;gap:15px;align-items:center;min-height:125px}
-.stat-icon{width:55px;height:55px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#e1eff9;color:#1765a0;font-size:25px}
+.stat{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;gap:12px;align-items:center;min-height:115px}
+.stat-icon{width:48px;height:48px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#e1eff9;color:#1765a0;font-size:23px}
 .stat:nth-child(2) .stat-icon,.stat:nth-child(3) .stat-icon{background:#f7efdf;color:#a87328}
-.stat strong{display:block;font:800 38px Manrope,sans-serif;color:var(--navy);margin:5px 0}
-.stat span{font-size:14px;color:var(--muted)}
-h2.section-title{font:800 30px Manrope,sans-serif;color:var(--navy);margin:28px 0 18px}
+.stat strong{display:block;font:800 34px Manrope,sans-serif;color:var(--navy);margin:4px 0}
+.stat span{font-size:13px;color:var(--muted)}
+h2.section-title{font:800 29px Manrope,sans-serif;color:var(--navy);margin:28px 0 18px}
 .quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.quick{display:flex;align-items:center;gap:16px;text-align:left;background:white;border:1px solid var(--line);border-radius:17px;padding:18px;color:var(--navy);text-decoration:none;min-width:0}
+.quick{display:flex;align-items:center;gap:15px;text-align:left;background:white;border:1px solid var(--line);border-radius:17px;padding:18px;color:var(--navy);text-decoration:none;min-width:0}
 .quick:hover{border-color:#d6b57e;box-shadow:0 5px 18px #17324d0c}
-.quick-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:14px;background:#e1eff9;font-size:26px;flex-shrink:0}
+.quick-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#e1eff9;font-size:25px;flex-shrink:0}
 .quick:nth-child(2) .quick-icon,.quick:nth-child(4) .quick-icon{background:#f8edda}
 .quick:nth-child(3) .quick-icon{background:#f8e1e1}
 .quick:nth-child(5) .quick-icon{background:#e1f1e3}
 .quick:nth-child(6) .quick-icon{background:#ebe3f5}
 .quick strong{display:block;font-weight:800;margin-bottom:5px}
 .quick small{display:block;color:var(--muted);line-height:1.5}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.secondary{border:0;background:#eee8dc;color:var(--navy);border-radius:10px;padding:12px 16px;font-weight:700}
-.task-empty{background:white;border:1px solid var(--line);border-radius:17px;padding:30px;text-align:center;color:var(--muted);margin:16px 0 35px}
-.section{padding:35px 0;scroll-margin-top:20px}
-.heading{display:flex;justify-content:space-between;align-items:end;gap:20px}
-.heading h2{font:800 34px Manrope,sans-serif;color:var(--navy);margin:10px 0 22px}
-.heading p{color:var(--muted);line-height:1.7;max-width:340px;font-size:14px}
+.section-head,.heading{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.heading h2{font:800 32px Manrope,sans-serif;color:var(--navy);margin:10px 0 22px}
+.heading p{color:var(--muted);line-height:1.7;max-width:360px;font-size:14px}
+.task-empty{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;color:var(--muted);margin:16px 0 30px}
 .tools{display:grid;grid-template-columns:minmax(180px,1fr) 230px auto;gap:10px;margin:18px 0}
 .tools input,.tools select{min-width:0;width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:white}
 #addResource{border:0;background:var(--navy);color:white;border-radius:12px;padding:14px;font-weight:700}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .card{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.art{height:115px;display:grid;place-items:center;background:linear-gradient(135deg,#17324d,#7896aa);color:white;font-size:40px}
-.art.ppt{background:linear-gradient(135deg,#9d654d,#d8aa87)}.art.pdf{background:linear-gradient(135deg,#8c514a,#d69a8d)}.art.word{background:linear-gradient(135deg,#285b8a,#8eb4d4)}.art.image{background:linear-gradient(135deg,#9b8359,#e0cfac)}
-.cardbody{padding:18px;display:flex;flex-direction:column;flex:1;min-width:0}
+.art{height:100px;display:grid;place-items:center;background:linear-gradient(135deg,#17324d,#7896aa);color:white;font-size:38px}
+.art.ppt{background:linear-gradient(135deg,#9d654d,#d8aa87)}
+.art.pdf{background:linear-gradient(135deg,#8c514a,#d69a8d)}
+.art.word{background:linear-gradient(135deg,#285b8a,#8eb4d4)}
+.art.image{background:linear-gradient(135deg,#9b8359,#e0cfac)}
+.cardbody{padding:17px;display:flex;flex-direction:column;flex:1;min-width:0}
 .tag{align-self:flex-start;background:#f5ecdc;color:var(--navy);padding:7px 10px;border-radius:7px;font-size:11px}
 .card h3{font:800 17px Manrope,sans-serif;color:var(--navy);overflow-wrap:anywhere}
 .card p,.note{font-size:13px;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
@@ -76,7 +77,9 @@ h2.section-title{font:800 30px Manrope,sans-serif;color:var(--navy);margin:28px 
 .empty{background:white;border:1px dashed var(--line);padding:25px;border-radius:14px;color:var(--muted);text-align:center}
 .subjectgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .subjectgrid a{background:white;border:1px solid var(--line);border-radius:15px;padding:20px;text-decoration:none;color:var(--navy)}
-.subjectgrid h3{font:800 16px Manrope,sans-serif}.subjectgrid p{color:var(--muted);font-size:13px;line-height:1.6}
+.subjectgrid a:hover{border-color:var(--gold)}
+.subjectgrid h3{font:800 16px Manrope,sans-serif}
+.subjectgrid p{color:var(--muted);font-size:13px;line-height:1.6}
 #backendNote{margin-top:16px}
 footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .modal{width:min(600px,calc(100% - 24px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:18px;padding:26px;background:white}
@@ -87,85 +90,86 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
 .modal .actions{display:flex;gap:9px;flex-wrap:wrap}
 .modal .actions button{border:0;border-radius:10px;padding:13px 17px;background:var(--navy);color:white;font-weight:700}
 .modal .actions .secondary{background:#f1e8d8;color:var(--navy)}
-.close{display:flex;justify-content:flex-end}.close button{border:0;background:transparent;color:#718078;font-size:24px}
+.close{display:flex;justify-content:flex-end}
+.close button{border:0;background:transparent;color:#718078;font-size:24px}
 .file-help{font-size:12px;color:var(--muted)}
-.note:empty{display:none}
-@media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cards,.subjectgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.heading{display:block}.tools{grid-template-columns:1fr}.blueprint{font-size:48px}}
-@media(max-width:600px){header{padding:15px 18px}.brand strong{font-size:17px}nav{margin:10px 12px 0;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap;padding:11px;font-size:12px}main{padding:20px 14px}.welcome{align-items:flex-start}.welcome .primary{padding:12px}.banner{padding:20px}.blueprint{display:none}.stats{gap:9px}.stat{padding:12px;gap:9px;min-height:110px}.stat-icon{width:39px;height:39px;font-size:19px}.stat strong{font-size:29px}.stat span{font-size:12px}.quick-grid{gap:9px}.quick{padding:12px;gap:9px;align-items:flex-start;flex-direction:column}.quick-icon{width:40px;height:40px;font-size:20px}.quick small{font-size:11px}.cards,.subjectgrid{grid-template-columns:1fr}.heading h2{font-size:28px}.section{padding:24px 0}}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cards,.subjectgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.tools{grid-template-columns:1fr}.heading{display:block}}
+@media(max-width:600px){header{padding:15px 18px}.brand strong{font-size:17px}nav{margin:10px 12px 0;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap;padding:11px;font-size:12px}main{padding:20px 14px}.welcome{align-items:flex-start}.banner{padding:20px}.blueprint{display:none}.stats{gap:9px}.stat{padding:11px;gap:8px;min-height:100px}.stat-icon{width:36px;height:36px;font-size:18px}.stat strong{font-size:27px}.stat span{font-size:11px}.quick-grid{gap:9px}.quick{padding:12px;gap:9px;align-items:flex-start;flex-direction:column}.quick-icon{width:40px;height:40px;font-size:20px}.quick small{font-size:11px}.cards,.subjectgrid{grid-template-columns:1fr}.heading h2{font-size:27px}}
 </style>
 </head>
 <body>
 <header>
-  <a class="brand" href="#home">
-    <span class="brand-mark">♧</span>
+  <a class="brand" href="#home" data-page="home">
+    <span class="brand-mark">⌂</span>
     <span><strong>Моят учителски кабинет</strong><small>Архитектура на знанието · 2026/2027</small></span>
   </a>
-  <button id="loginOpen">Вход за учители</button>
+  <button id="loginOpen" class="primary">Вход за учители</button>
 </header>
 
 <nav aria-label="Основна навигация">
-  <a href="#home">⌂ Начало</a>
-  <a href="#uroci">▤ Моите уроци</a>
-  <a href="#kalendar">▦ Календар</a>
-  <a href="#zadachi">✓ Задачи</a>
-  <a href="#biblioteka">▣ Библиотека</a>
-  <a href="#predmeti">◇ Предмети</a>
+  <a href="#home" data-page="home" class="active">⌂ Начало</a>
+  <a href="#uroci" data-page="uroci">▤ Моите уроци</a>
+  <a href="#kalendar" data-page="kalendar">▦ Календар</a>
+  <a href="#zadachi" data-page="zadachi">✓ Задачи</a>
+  <a href="#biblioteka" data-page="biblioteka">▣ Библиотека</a>
+  <a href="#predmeti" data-page="predmeti">◇ Предмети</a>
 </nav>
 
-<main id="home">
-  <section class="welcome">
-    <div><div class="eyebrow">ЛИЧЕН РАБОТЕН КАБИНЕТ</div><h1>Добре дошла!</h1></div>
-    <button class="primary" id="quickAdd">＋ Добави</button>
-  </section>
+<main>
+  <div id="page-home" class="page active">
+    <section class="welcome">
+      <div><div class="eyebrow">ЛИЧЕН РАБОТЕН КАБИНЕТ</div><h1>Добре дошла!</h1></div>
+      <button class="primary" id="quickAdd">＋ Добави</button>
+    </section>
+    <section class="banner">
+      <div><div class="eyebrow" style="color:#ad762f">ТВОЕТО МЯСТО ЗА ИДЕИ И ЗНАНИЯ</div><h2>Всяка добра идея започва с чертеж.</h2><p>Уроци, планове и строителни вдъхновения — подредени в твоя личен кабинет.</p></div>
+      <div class="blueprint" aria-hidden="true">⌂</div>
+    </section>
+    <section class="stats">
+      <div class="stat"><div class="stat-icon">▤</div><div><span>Моите уроци</span><strong id="lessonCount">0</strong><span>запазени теми</span></div></div>
+      <div class="stat"><div class="stat-icon">☑</div><div><span>Активни задачи</span><strong id="taskCount">0</strong><span>за изпълнение</span></div></div>
+      <div class="stat"><div class="stat-icon">▦</div><div><span>Предстоящи събития</span><strong id="eventCount">0</strong><span>в календара</span></div></div>
+      <div class="stat"><div class="stat-icon">▤</div><div><span>Материали</span><strong id="materialCount">0</strong><span>в библиотеката</span></div></div>
+    </section>
+    <h2 class="section-title">Бърз достъп</h2>
+    <section class="quick-grid">
+      <button class="quick" id="quickLesson"><span class="quick-icon">📘</span><span><strong>Нов урок</strong><small>Тема, клас, цели и бележки</small></span></button>
+      <button class="quick" id="quickTask"><span class="quick-icon">☑️</span><span><strong>Нова задача</strong><small>Добави срок и приоритет</small></span></button>
+      <button class="quick" id="quickEvent"><span class="quick-icon">🗓️</span><span><strong>Събитие в календара</strong><small>Срок, посещение или среща</small></span></button>
+      <button class="quick" id="quickMaterial"><span class="quick-icon">📁</span><span><strong>Нов материал</strong><small>Файл, снимка или чертеж</small></span></button>
+      <button class="quick" data-goto="predmeti"><span class="quick-icon">📚</span><span><strong>Моите предмети</strong><small>Организирай учебните теми</small></span></button>
+      <button class="quick" id="backupButton"><span class="quick-icon">💾</span><span><strong>Резервно копие</strong><small>Изтегли резервен файл</small></span></button>
+    </section>
+    <div class="section-head"><h2 class="section-title">Предстоящи задачи</h2><button class="secondary" data-goto="zadachi">Всички задачи →</button></div>
+    <div id="taskEmpty" class="task-empty">☑　Нямаш активни задачи.</div>
+  </div>
 
-  <section class="banner">
-    <div>
-      <div class="eyebrow" style="color:#ad762f">ТВОЕТО МЯСТО ЗА ИДЕИ И ЗНАНИЯ</div>
-      <h2>Всяка добра идея започва с чертеж.</h2>
-      <p>Уроци, планове и строителни вдъхновения — подредени в твоя личен кабинет.</p>
-    </div>
-    <div class="blueprint" aria-hidden="true">⌂</div>
-  </section>
-
-  <section class="stats" aria-label="Обобщение">
-    <div class="stat"><div class="stat-icon">▤</div><div><span>Моите уроци</span><strong id="lessonCount">0</strong><span>запазени теми</span></div></div>
-    <div class="stat"><div class="stat-icon">☑</div><div><span>Активни задачи</span><strong id="taskCount">0</strong><span>за изпълнение</span></div></div>
-    <div class="stat"><div class="stat-icon">▦</div><div><span>Предстоящи събития</span><strong id="eventCount">0</strong><span>в календара</span></div></div>
-    <div class="stat"><div class="stat-icon">▤</div><div><span>Материали</span><strong id="materialCount">0</strong><span>в библиотеката</span></div></div>
-  </section>
-
-  <h2 class="section-title">Бърз достъп</h2>
-  <section class="quick-grid">
-    <a class="quick" href="#uroci"><span class="quick-icon">📘</span><span><strong>Нов урок</strong><small>Тема, клас, цели и бележки</small></span></a>
-    <a class="quick" href="#zadachi"><span class="quick-icon">☑️</span><span><strong>Нова задача</strong><small>Добави срок и приоритет</small></span></a>
-    <a class="quick" href="#kalendar"><span class="quick-icon">🗓️</span><span><strong>Събитие в календара</strong><small>Срок, посещение или среща</small></span></a>
-    <button class="quick" id="quickMaterial"><span class="quick-icon">📁</span><span><strong>Нов материал</strong><small>Файл, снимка или чертеж</small></span></button>
-    <a class="quick" href="#predmeti"><span class="quick-icon">📚</span><span><strong>Нов предмет</strong><small>Организирай учебните теми</small></span></a>
-    <button class="quick" id="backupButton"><span class="quick-icon">💾</span><span><strong>Резервно копие</strong><small>Изтегли данните си</small></span></button>
-  </section>
-
-  <section id="zadachi" class="section">
-    <div class="section-head"><h2 class="section-title">Предстоящи задачи</h2><button class="secondary" id="allTasks">Всички</button></div>
-    <div class="task-empty" id="taskEmpty">☑　Нямаш активни задачи.</div>
-  </section>
-
-  <section id="uroci" class="section">
+  <section id="page-uroci" class="page">
     <div class="eyebrow">ЛИЧНО СЪДЪРЖАНИЕ</div>
-    <div class="heading"><div><h2>Моите уроци</h2></div><p>Тук ще подреждаш своите планове, теми и разработки.</p></div>
-    <div class="task-empty">Уроците ще се показват тук, когато бъде добавена функцията за запазването им.</div>
+    <div class="heading"><div><h2>Моите уроци</h2></div><p>Създавай и подреждай плановете и темите си.</p></div>
+    <button class="primary" id="addLesson">＋ Нов урок</button>
+    <div id="savedLessons" class="cards" style="margin-top:18px"></div>
   </section>
 
-  <section id="kalendar" class="section">
+  <section id="page-kalendar" class="page">
     <div class="eyebrow">ПЛАНИРАНЕ</div>
-    <div class="heading"><div><h2>Моят календар</h2></div><p>Събития, посещения, срещи и учебни срокове.</p></div>
-    <div class="task-empty">Все още няма добавени събития.</div>
+    <div class="heading"><div><h2>Моят календар</h2></div><p>Посещения, срещи, събития и учебни срокове.</p></div>
+    <button class="primary" id="addEvent">＋ Ново събитие</button>
+    <div id="savedEvents" class="cards" style="margin-top:18px"></div>
   </section>
 
-  <section id="biblioteka" class="section">
+  <section id="page-zadachi" class="page">
+    <div class="eyebrow">ОРГАНИЗАЦИЯ</div>
+    <div class="heading"><div><h2>Моите задачи</h2></div><p>Следи какво предстои и отбелязвай изпълненото.</p></div>
+    <button class="primary" id="addTask">＋ Нова задача</button>
+    <div id="taskPageList" class="task-empty" style="margin-top:18px">Нямаш активни задачи.</div>
+  </section>
+
+  <section id="page-biblioteka" class="page">
     <div class="eyebrow">СПОДЕЛЕНО ЗНАНИЕ</div>
-    <div class="heading"><div><h2>Учебна библиотека</h2></div><p>Намери материал по предмет или тема. Отваряй файловете директно или ги изтегляй.</p></div>
+    <div class="heading"><div><h2>Учебна библиотека</h2></div><p>Търси, отваряй и изтегляй материали и чертежи.</p></div>
     <div class="tools">
-      <input id="searchInput" type="search" placeholder="Търси материал, предмет или ключова дума…" aria-label="Търси материал">
+      <input id="searchInput" type="search" placeholder="Търси материал или тема…" aria-label="Търси материал">
       <select id="categoryFilter" aria-label="Филтър по предмет">
         <option value="">Всички предмети</option>
         <option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option>
@@ -177,8 +181,9 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
     <p id="backendNote" class="note" role="status"></p>
   </section>
 
-  <section id="predmeti" class="section">
-    <div class="eyebrow">ПОДРЕДЕНИ ПО ДИСЦИПЛИНИ</div><h2 class="section-title">Моите предмети</h2>
+  <section id="page-predmeti" class="page">
+    <div class="eyebrow">ПОДРЕДЕНИ ПО ДИСЦИПЛИНИ</div>
+    <div class="heading"><div><h2>Моите предмети</h2></div><p>Избери предмет, за да прегледаш материалите по него.</p></div>
     <div class="subjectgrid">
       <a href="#biblioteka" data-subject="Въведение в професията"><h3>Въведение в професията</h3><p>Професии, безопасност, инструменти и организация.</p></a>
       <a href="#biblioteka" data-subject="Техническо чертане"><h3>Техническо чертане</h3><p>Линии, мащаби и геометрични построения.</p></a>
@@ -195,8 +200,8 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
   <form method="dialog" class="close"><button aria-label="Затвори">×</button></form>
   <div class="eyebrow">ПРОСТРАНСТВО ЗА ЕКИПА</div><h2>Вход за учители</h2>
   <form id="authForm">
-    <label class="field-label" for="email">Служебен имейл</label><input id="email" type="email" autocomplete="email" placeholder="name@school.bg" required>
-    <label class="field-label" for="password">Парола</label><input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="Поне 6 символа" required>
+    <label class="field-label" for="email">Имейл</label><input id="email" type="email" autocomplete="email" required>
+    <label class="field-label" for="password">Парола</label><input id="password" type="password" autocomplete="current-password" minlength="6" required>
     <div class="actions"><button id="signIn" type="submit">Вход</button><button id="signUp" class="secondary" type="button">Създай профил</button></div>
   </form>
   <p id="authMessage" class="note" role="status"></p>
@@ -211,10 +216,10 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
     <select id="rCategory"><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select>
     <label class="field-label" for="rType">Вид материал</label>
     <select id="rType"><option>Презентация</option><option>PDF документ</option><option>Word документ</option><option>Снимка</option><option>Работен лист</option><option>Тест</option><option>Практическа задача</option><option>Външна връзка</option></select>
-    <label class="field-label" for="rDescription">Кратко описание</label><textarea id="rDescription" placeholder="Какво съдържа материалът?"></textarea>
+    <label class="field-label" for="rDescription">Кратко описание</label><textarea id="rDescription"></textarea>
     <label class="field-label" for="rFile">Файл (PPTX, PDF, DOCX или снимка)</label><input id="rFile" type="file" accept=".pptx,.pdf,.docx,.jpg,.jpeg,.png,.webp">
-    <small class="file-help">Максимален размер: 50 MB. За качване е необходим учителски профил.</small>
-    <label class="field-label" for="rUrl">Или външна връзка (по желание)</label><input id="rUrl" type="url" placeholder="https://…">
+    <small class="file-help">Максимален размер: 50 MB.</small>
+    <label class="field-label" for="rUrl">Или външна връзка</label><input id="rUrl" type="url" placeholder="https://…">
     <div class="actions"><button id="saveResource" type="submit">Запази материала</button><button class="secondary" id="cancelResource" type="button">Отказ</button></div>
   </form>
   <p id="resourceMessage" class="note" role="status"></p>
@@ -223,13 +228,78 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
 <script src="config.js"></script>
 <script src="app.js"></script>
 <script>
-document.getElementById("quickMaterial").addEventListener("click",()=>document.getElementById("addResource").click());
-document.getElementById("quickAdd").addEventListener("click",()=>document.getElementById("resourceDialog").showModal());
-document.getElementById("backupButton").addEventListener("click",()=>{
-  const data={exportedAt:new Date().toISOString(),message:"Резервно копие на наличната библиотека",note:"За пълно резервно копие на всички данни използвайте Export от Supabase."};
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
-  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="uchitelski-kabinet-backup.json";a.click();URL.revokeObjectURL(a.href);
-});
+(function(){
+  const pages=["home","uroci","kalendar","zadachi","biblioteka","predmeti"];
+  function goToPage(name){
+    if(!pages.includes(name)) name="home";
+    pages.forEach(p=>{
+      const el=document.getElementById("page-"+p);
+      if(el) el.classList.toggle("active",p===name);
+    });
+    document.querySelectorAll("nav [data-page]").forEach(a=>{
+      a.classList.toggle("active",a.dataset.page===name);
+    });
+    history.replaceState(null,"","#"+name);
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  document.querySelectorAll("nav [data-page], .brand[data-page], [data-goto]").forEach(el=>{
+    el.addEventListener("click",e=>{
+      e.preventDefault();
+      goToPage(el.dataset.page||el.dataset.goto);
+    });
+  });
+  document.querySelectorAll("[data-subject]").forEach(el=>{
+    el.addEventListener("click",e=>{
+      e.preventDefault();
+      const filter=document.getElementById("categoryFilter");
+      filter.value=el.dataset.subject;
+      filter.dispatchEvent(new Event("change"));
+      goToPage("biblioteka");
+    });
+  });
+  document.getElementById("quickLesson").addEventListener("click",()=>goToPage("uroci"));
+  document.getElementById("quickTask").addEventListener("click",()=>goToPage("zadachi"));
+  document.getElementById("quickEvent").addEventListener("click",()=>goToPage("kalendar"));
+  document.getElementById("quickMaterial").addEventListener("click",()=>{
+    goToPage("biblioteka");
+    document.getElementById("addResource").click();
+  });
+  document.getElementById("addLesson").addEventListener("click",()=>document.getElementById("quickLesson").click());
+  document.getElementById("addTask").addEventListener("click",()=>document.getElementById("quickTask").click());
+  document.getElementById("addEvent").addEventListener("click",()=>document.getElementById("quickEvent").click());
+
+  // Допълнителни списъци за задачите и календара
+  const dataKey="teacherCabinetPlannerV1";
+  function getData(){
+    try{return JSON.parse(localStorage.getItem(dataKey))||{lessons:[],tasks:[],events:[]};}
+    catch{return {lessons:[],tasks:[],events:[]};}
+  }
+  function escHtml(s){
+    return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  }
+  function renderExtra(){
+    const d=getData();
+    const list=document.getElementById("taskPageList");
+    const active=d.tasks.filter(t=>!t.done);
+    list.innerHTML=active.length?active.map(t=>`<div style="padding:12px 0;border-bottom:1px solid #e6e1d8"><strong>${escHtml(t.title)}</strong><p>${escHtml(t.date||"Без срок")} · ${escHtml(t.priority||"Среден приоритет")}</p></div>`).join(""):"Нямаш активни задачи.";
+    document.getElementById("lessonCount").textContent=d.lessons.length;
+    document.getElementById("taskCount").textContent=active.length;
+    document.getElementById("eventCount").textContent=d.events.length;
+    const oldRefreshNote=document.getElementById("materialCount");
+    if(oldRefreshNote) oldRefreshNote.textContent=document.querySelectorAll("#resourceGrid .card").length;
+  }
+  document.getElementById("quickAdd").addEventListener("click",()=>{
+    const c=prompt("Какво искаш да добавиш?\n1 — Урок\n2 — Задача\n3 — Събитие\n4 — Материал");
+    if(c==="1") goToPage("uroci");
+    else if(c==="2") goToPage("zadachi");
+    else if(c==="3") goToPage("kalendar");
+    else if(c==="4"){goToPage("biblioteka");document.getElementById("addResource").click();}
+  });
+  window.addEventListener("hashchange",()=>goToPage(location.hash.slice(1)));
+  goToPage(location.hash.slice(1)||"home");
+  renderExtra();
+})();
 </script>
 </body>
 </html>
+
