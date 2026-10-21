@@ -136,5 +136,256 @@
     }catch(err){showMessage("resourceMessage","Неуспешно запазване: "+(err?.message||"неизвестна грешка"));}
     finally{btn.disabled=false;}
   });
+
+  // Уроци, задачи и събития — локално запазване в браузъра
+  const plannerKey = "teacherCabinetPlannerV1";
+
+  function getPlannerData() {
+    try {
+      return JSON.parse(localStorage.getItem(plannerKey)) || {
+        lessons: [], tasks: [], events: []
+      };
+    } catch {
+      return { lessons: [], tasks: [], events: [] };
+    }
+  }
+
+  function savePlannerData(data) {
+    localStorage.setItem(plannerKey, JSON.stringify(data));
+    renderPlanner();
+  }
+
+  function renderPlanner() {
+    const data = getPlannerData();
+
+    $("lessonCount").textContent = data.lessons.length;
+    $("taskCount").textContent = data.tasks.filter(t => !t.done).length;
+    $("eventCount").textContent = data.events.length;
+    $("materialCount").textContent = items.length;
+
+    const taskBox = $("taskEmpty");
+    if (taskBox) {
+      const active = data.tasks.filter(t => !t.done);
+      taskBox.innerHTML = active.length
+        ? active.map((t, i) => `
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #e6e1d8;text-align:left">
+            <label style="display:flex;gap:10px;align-items:center">
+              <input type="checkbox" data-task="${i}" ${t.done ? "checked" : ""}>
+              <span>
+                <strong>${esc(t.title)}</strong><br>
+                <small>${esc(t.date || "Без срок")}${t.priority ? " · " + esc(t.priority) : ""}</small>
+              </span>
+            </label>
+            <button type="button" class="secondary" data-delete-task="${i}">Изтрий</button>
+          </div>`).join("")
+        : "☑　Нямаш активни задачи.";
+    }
+
+    const lessonSection = $("uroci");
+    const oldLessons = $("savedLessons");
+    if (lessonSection && oldLessons) {
+      oldLessons.innerHTML = data.lessons.length
+        ? data.lessons.map((l, i) => `
+          <article class="card" style="padding:16px">
+            <span class="tag">${esc(l.subject || "Други")}</span>
+            <h3>${esc(l.title)}</h3>
+            <p>${esc(l.notes || "Няма добавени бележки.")}</p>
+            <small>Клас: ${esc(l.grade || "Не е посочен")}</small>
+            <button class="secondary" data-delete-lesson="${i}" style="margin-top:12px">Изтрий урока</button>
+          </article>`).join("")
+        : '<p class="empty">Все още няма запазени уроци.</p>';
+    }
+
+    const eventSection = $("kalendar");
+    const oldEvents = $("savedEvents");
+    if (eventSection && oldEvents) {
+      oldEvents.innerHTML = data.events.length
+        ? [...data.events].sort((a,b) => (a.date || "").localeCompare(b.date || "")).map((ev,i) => `
+          <article class="card" style="padding:16px">
+            <span class="tag">${esc(ev.date || "Без дата")}</span>
+            <h3>${esc(ev.title)}</h3>
+            <p>${esc(ev.notes || "Няма допълнителни бележки.")}</p>
+            <button class="secondary" data-delete-event="${i}" style="margin-top:12px">Изтрий събитието</button>
+          </article>`).join("")
+        : '<p class="empty">Все още няма добавени събития.</p>';
+    }
+  }
+
+  function addPlannerItem(kind) {
+    const prompts = {
+      lesson: [
+        ["Заглавие на урока:", ""],
+        ["Предмет:", "Въведение в професията"],
+        ["Клас:", "8. клас"],
+        ["Цели и бележки:", ""]
+      ],
+      task: [
+        ["Каква е задачата?", ""],
+        ["Срок (ГГГГ-ММ-ДД), по желание:", ""],
+        ["Приоритет (Висок/Среден/Нисък):", "Среден"]
+      ],
+      event: [
+        ["Наименование на събитието:", ""],
+        ["Дата (ГГГГ-ММ-ДД):", ""],
+        ["Бележки:", ""]
+      ]
+    };
+
+    const answers = [];
+    for (const [label, defaultValue] of prompts[kind]) {
+      const answer = prompt(label, defaultValue);
+      if (answer === null) return;
+      answers.push(answer.trim());
+    }
+
+    if (!answers[0]) {
+      alert("Моля, въведи заглавие.");
+      return;
+    }
+
+    const data = getPlannerData();
+
+    if (kind === "lesson") {
+      data.lessons.push({
+        title: answers[0],
+        subject: answers[1],
+        grade: answers[2],
+        notes: answers[3],
+        createdAt: new Date().toISOString()
+      });
+    } else if (kind === "task") {
+      data.tasks.push({
+        title: answers[0],
+        date: answers[1],
+        priority: answers[2],
+        done: false
+      });
+    } else {
+      data.events.push({
+        title: answers[0],
+        date: answers[1],
+        notes: answers[2]
+      });
+    }
+
+    savePlannerData(data);
+  }
+
+  // Добавяме отделни списъци в съответните секции
+  const lessonList = document.createElement("div");
+  lessonList.id = "savedLessons";
+  lessonList.className = "cards";
+  $("uroci").appendChild(lessonList);
+
+  const eventList = document.createElement("div");
+  eventList.id = "savedEvents";
+  eventList.className = "cards";
+  $("kalendar").appendChild(eventList);
+
+  // Бутоните за създаване
+  document.querySelectorAll('a[href="#uroci"]').forEach(a => {
+    a.addEventListener("click", e => {
+      if (e.target.closest(".quick")) {
+        e.preventDefault();
+        addPlannerItem("lesson");
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href="#zadachi"]').forEach(a => {
+    a.addEventListener("click", e => {
+      if (e.target.closest(".quick")) {
+        e.preventDefault();
+        addPlannerItem("task");
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href="#kalendar"]').forEach(a => {
+    a.addEventListener("click", e => {
+      if (e.target.closest(".quick")) {
+        e.preventDefault();
+        addPlannerItem("event");
+      }
+    });
+  });
+
+  $("allTasks").addEventListener("click", () => {
+    const data = getPlannerData();
+    const active = data.tasks.filter(t => !t.done);
+    alert(active.length
+      ? active.map(t => `${t.title}${t.date ? " — " + t.date : ""}`).join("\n")
+      : "Нямаш активни задачи.");
+  });
+
+  $("taskEmpty").addEventListener("change", e => {
+    const index = e.target.dataset.task;
+    if (index === undefined) return;
+    const data = getPlannerData();
+    const active = data.tasks.filter(t => !t.done);
+    if (active[index]) {
+      const task = active[index];
+      const realIndex = data.tasks.indexOf(task);
+      data.tasks[realIndex].done = e.target.checked;
+      savePlannerData(data);
+    }
+  });
+
+  $("taskEmpty").addEventListener("click", e => {
+    const taskIndex = e.target.dataset.deleteTask;
+    if (taskIndex !== undefined) {
+      const data = getPlannerData();
+      const active = data.tasks.filter(t => !t.done);
+      const task = active[taskIndex];
+      if (task && confirm("Да изтрия ли задачата?")) {
+        data.tasks.splice(data.tasks.indexOf(task), 1);
+        savePlannerData(data);
+      }
+    }
+
+    const lessonIndex = e.target.dataset.deleteLesson;
+    if (lessonIndex !== undefined) {
+      const data = getPlannerData();
+      if (confirm("Да изтрия ли урока?")) {
+        data.lessons.splice(lessonIndex, 1);
+        savePlannerData(data);
+      }
+    }
+  });
+
+  $("uroci").addEventListener("click", e => {
+    const index = e.target.dataset.deleteLesson;
+    if (index === undefined) return;
+    const data = getPlannerData();
+    if (confirm("Да изтрия ли урока?")) {
+      data.lessons.splice(index, 1);
+      savePlannerData(data);
+    }
+  });
+
+  $("kalendar").addEventListener("click", e => {
+    const index = e.target.dataset.deleteEvent;
+    if (index === undefined) return;
+    const data = getPlannerData();
+    if (confirm("Да изтрия ли събитието?")) {
+      data.events.splice(index, 1);
+      savePlannerData(data);
+    }
+  });
+
+  const originalRefresh = refresh;
+  refresh = async function() {
+    await originalRefresh();
+    renderPlanner();
+  };
+
+  // Допълнителни действия от началния екран
+  $("quickAdd").addEventListener("click", () => {
+    const choice = prompt("Какво искаш да добавиш?\n1 — Урок\n2 — Задача\n3 — Събитие\n4 — Материал");
+    if (choice === "1") addPlannerItem("lesson");
+    else if (choice === "2") addPlannerItem("task");
+    else if (choice === "3") addPlannerItem("event");
+    else if (choice === "4") $("addResource").click();
+  });
+
   init();
-})();
