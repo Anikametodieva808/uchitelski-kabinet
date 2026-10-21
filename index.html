@@ -3,874 +3,409 @@
 <html lang="bg">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Моят учителски кабинет</title>
-
 <style>
-:root {
-  --navy: #193650;
-  --gold: #e9b96f;
-  --cream: #f8f4ec;
-  --sand: #f1e8d8;
-  --muted: #71829a;
-  --line: #e6ded1;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--navy);
-  font: 16px Arial, sans-serif;
-}
-.wrap { max-width: 1400px; margin: auto; padding: 24px; }
-.top, .head, .foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.brand { font-size: 24px; font-weight: bold; }
-.muted, .status { color: var(--muted); }
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  background: var(--sand);
-  padding: 9px;
-  border-radius: 20px;
-  margin: 24px 0;
-}
-button {
-  border: 0;
-  border-radius: 13px;
-  padding: 13px 17px;
-  background: var(--navy);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-button.secondary { background: var(--sand); color: var(--navy); }
-button.danger { background: #f7e5e1; color: #8a2c20; }
-button.active { background: var(--gold); color: var(--navy); }
-button:disabled { opacity: .55; cursor: wait; }
-input, select, textarea {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fbf8f2;
-  font: inherit;
-  color: var(--navy);
-}
-textarea { min-height: 90px; resize: vertical; }
-label { display: block; margin: 13px 0 7px; font-weight: bold; }
-.page { min-height: 50vh; }
-.hidden { display: none !important; }
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: 3px;
-  font-weight: bold;
-  color: #9b7a4c;
-}
-.head { margin: 28px 0; }
-.head h1 { font-size: 38px; margin: 9px 0; }
-.banner {
-  padding: 30px;
-  border-radius: 22px;
-  background: var(--navy);
-  color: white;
-  margin: 22px 0;
-}
-.banner .eyebrow { color: var(--gold); }
-.banner h2 { font-size: 34px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 17px;
-}
-.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.card {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 21px;
-  min-width: 0;
-}
-.card h3 { font-size: 20px; }
-.pill {
-  display: inline-block;
-  padding: 8px 11px;
-  background: #f5ecdc;
-  border-radius: 9px;
-  font-size: 13px;
-}
-.actions, .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-.toolbar { margin: 20px 0; }
-.toolbar input { flex: 1; min-width: 220px; }
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.stats strong { font-size: 30px; display: block; margin-top: 10px; }
-.empty {
-  background: white;
-  border: 1px dashed var(--line);
-  border-radius: 18px;
-  padding: 25px;
-  color: var(--muted);
-}
-.modal {
-  position: fixed;
-  inset: 0;
-  background: #14293dbb;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  z-index: 5;
-}
-.modal.open { display: flex; }
-.box {
-  background: white;
-  border-radius: 22px;
-  padding: 25px;
-  width: min(720px, 100%);
-  max-height: 92vh;
-  overflow: auto;
-}
-.check { display: flex; align-items: center; gap: 9px; margin: 14px 0; }
-.check input { width: auto; }
-.foot {
-  border-top: 1px solid var(--line);
-  margin-top: 35px;
-  padding: 25px 0;
-  color: var(--muted);
-}
-a { color: var(--navy); font-weight: bold; }
-.status { font-size: 13px; margin-top: 10px; overflow-wrap: anywhere; }
-@media(max-width: 750px) {
-  .grid, .two, .stats { grid-template-columns: 1fr; }
-  .wrap { padding: 16px; }
-  .head h1 { font-size: 30px; }
-}
+:root{--n:#193650;--g:#e9b96f;--c:#f8f4ec;--s:#f1e8d8;--m:#71829a;--l:#e6ded1}
+*{box-sizing:border-box}body{margin:0;background:var(--c);color:var(--n);font:16px Arial,sans-serif}
+.wrap{max-width:1400px;margin:auto;padding:24px}.top,.head,.foot{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.brand{font-size:24px;font-weight:bold}.muted,.status{color:var(--m)}.nav{display:flex;flex-wrap:wrap;gap:6px;background:var(--s);padding:9px;border-radius:20px;margin:24px 0}
+.nav button{background:transparent;color:var(--n)}.nav button.active{background:var(--g)}
+button{border:0;border-radius:13px;padding:12px 16px;background:var(--n);color:white;font-weight:bold;cursor:pointer}
+button.secondary{background:var(--s);color:var(--n)}button.danger{background:#f7e5e1;color:#8a2c20}button:disabled{opacity:.5}
+input,select,textarea{width:100%;padding:13px;border:1px solid var(--l);border-radius:12px;background:#fbf8f2;font:inherit;color:var(--n)}
+textarea{min-height:85px}label{display:block;margin:13px 0 7px;font-weight:bold}
+.page{min-height:50vh}.hidden{display:none!important}.eyebrow{font-size:12px;letter-spacing:3px;font-weight:bold;color:#9b7a4c}
+.head{margin:28px 0}.head h1{font-size:36px;margin:9px 0}.banner{padding:30px;border-radius:22px;background:var(--n);color:white;margin:22px 0}
+.banner .eyebrow{color:var(--g)}.banner h2{font-size:32px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:white;border:1px solid var(--l);border-radius:20px;padding:21px;min-width:0;overflow-wrap:anywhere}
+.card h3{font-size:20px}.pill{display:inline-block;padding:8px 11px;background:#f5ecdc;border-radius:9px;font-size:13px}
+.actions,.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.toolbar{margin:20px 0}.toolbar input{flex:1;min-width:200px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stats strong{font-size:30px;display:block;margin-top:10px}
+.empty{background:white;border:1px dashed var(--l);border-radius:18px;padding:25px;color:var(--m)}
+.modal{position:fixed;inset:0;background:#14293dbb;display:none;align-items:center;justify-content:center;padding:16px;z-index:5}
+.modal.open{display:flex}.box{background:white;border-radius:22px;padding:25px;width:min(720px,100%);max-height:92vh;overflow:auto}
+.check{display:flex;align-items:center;gap:9px;margin:14px 0}.check input{width:auto}.foot{border-top:1px solid var(--l);margin-top:35px;padding:25px 0;color:var(--m)}
+a{color:var(--n);font-weight:bold}.status{font-size:13px;margin-top:10px;overflow-wrap:anywhere}
+@media(max-width:750px){.grid,.two,.stats{grid-template-columns:1fr}.wrap{padding:16px}.head h1{font-size:30px}}
 </style>
 </head>
-
 <body>
 <div class="wrap">
-
 <header class="top">
-  <div>
-    <div class="brand">Моят учителски кабинет</div>
-    <div class="muted">Архитектура на знанието · 2026/2027</div>
-  </div>
-  <div>
-    <button class="secondary" id="loginOpen">Вход за учители</button>
-    <button class="secondary hidden" id="logout">Изход</button>
-  </div>
+ <div><div class="brand">Моят учителски кабинет</div><div class="muted">Архитектура на знанието · 2026/2027</div></div>
+ <div><button class="secondary" id="loginOpen">Вход за учители</button> <button class="secondary hidden" id="logout">Изход</button></div>
 </header>
 
 <nav class="nav">
-  <button class="active" data-page="home">⌂ Начало</button>
-  <button data-page="lessons">▤ Моите уроци</button>
-  <button data-page="calendar">▦ Календар</button>
-  <button data-page="tasks">✓ Задачи</button>
-  <button data-page="library">▣ Библиотека</button>
-  <button data-page="subjects">◇ Предмети</button>
+ <button class="active" data-page="home">⌂ Начало</button>
+ <button data-page="lessons">▤ Моите уроци</button>
+ <button data-page="calendar">▦ Календар</button>
+ <button data-page="tasks">✓ Задачи</button>
+ <button data-page="library">▣ Библиотека</button>
+ <button data-page="subjects">◇ Предмети</button>
 </nav>
 
 <section id="p-home" class="page">
-  <div class="head">
-    <div>
-      <div class="eyebrow">ТВОЕТО РАБОТНО ПРОСТРАНСТВО</div>
-      <h1>Добре дошла!</h1>
-      <div class="muted">Планирай, създавай и споделяй знания с колегите.</div>
-    </div>
-  </div>
-
-  <div class="banner">
-    <div class="eyebrow">ТВОЕТО МЯСТО ЗА ИДЕИ И ЗНАНИЯ</div>
-    <h2>Всяка добра идея започва с чертеж.</h2>
-    Уроци, материали и планове — на едно място.
-  </div>
-
-  <div class="stats">
-    <div class="card">Уроци<strong id="nLessons">0</strong></div>
-    <div class="card">Събития<strong id="nEvents">0</strong></div>
-    <div class="card">Материали<strong id="nResources">0</strong></div>
-  </div>
-
-  <div class="head"><h2>Бърз достъп</h2></div>
-  <div class="grid">
-    <div class="card">
-      <h3>Моите уроци</h3>
-      <p>Планове, цели и материали.</p>
-      <button data-goto="lessons">Отвори</button>
-    </div>
-    <div class="card">
-      <h3>Учебна библиотека</h3>
-      <p>Споделени материали за учителите.</p>
-      <button data-goto="library">Отвори</button>
-    </div>
-    <div class="card">
-      <h3>Календар и задачи</h3>
-      <button data-goto="calendar">Календар</button>
-      <button class="secondary" data-goto="tasks">Задачи</button>
-    </div>
-  </div>
+ <div class="head"><div><div class="eyebrow">ТВОЕТО РАБОТНО ПРОСТРАНСТВО</div><h1>Добре дошла!</h1><div class="muted">Планирай, създавай и споделяй знания с колегите.</div></div></div>
+ <div class="banner"><div class="eyebrow">ТВОЕТО МЯСТО ЗА ИДЕИ И ЗНАНИЯ</div><h2>Всяка добра идея започва с чертеж.</h2>Уроци, материали и планове — на едно място.</div>
+ <div class="stats"><div class="card">Уроци<strong id="nLessons">0</strong></div><div class="card">Събития<strong id="nEvents">0</strong></div><div class="card">Материали<strong id="nResources">0</strong></div></div>
+ <div class="head"><h2>Бърз достъп</h2></div>
+ <div class="grid"><div class="card"><h3>Моите уроци</h3><p>Планове, цели и материали.</p><button data-goto="lessons">Отвори</button></div><div class="card"><h3>Учебна библиотека</h3><p>Споделени материали.</p><button data-goto="library">Отвори</button></div><div class="card"><h3>Календар и задачи</h3><button data-goto="calendar">Календар</button> <button class="secondary" data-goto="tasks">Задачи</button></div></div>
 </section>
 
-<section id="p-lessons" class="page hidden">
-  <div class="head">
-    <h1>Моите уроци</h1>
-    <button data-new="lesson">＋ Нов урок</button>
-  </div>
-  <div id="lessons" class="grid"></div>
-</section>
-
-<section id="p-calendar" class="page hidden">
-  <div class="head">
-    <h1>Моят календар</h1>
-    <button data-new="event">＋ Ново събитие</button>
-  </div>
-  <div id="events" class="grid two"></div>
-</section>
-
-<section id="p-tasks" class="page hidden">
-  <div class="head">
-    <h1>Моите задачи</h1>
-    <button data-new="task">＋ Нова задача</button>
-  </div>
-  <div id="tasks" class="grid two"></div>
-</section>
+<section id="p-lessons" class="page hidden"><div class="head"><h1>Моите уроци</h1><button data-new="lesson">＋ Нов урок</button></div><div id="lessons" class="grid"></div></section>
+<section id="p-calendar" class="page hidden"><div class="head"><h1>Моят календар</h1><button data-new="event">＋ Ново събитие</button></div><div id="events" class="grid two"></div></section>
+<section id="p-tasks" class="page hidden"><div class="head"><h1>Моите задачи</h1><button data-new="task">＋ Нова задача</button></div><div id="tasks" class="grid two"></div></section>
 
 <section id="p-library" class="page hidden">
-  <div class="head">
-    <div>
-      <div class="eyebrow">СПОДЕЛЕНО ЗНАНИЕ</div>
-      <h1>Учебна библиотека</h1>
-    </div>
-  </div>
-  <div class="toolbar">
-    <input id="search" placeholder="Търси материал или тема…">
-    <select id="filter">
-      <option value="">Всички предмети</option>
-      <option>Въведение в професията</option>
-      <option>Техническо чертане</option>
-      <option>Геодезия</option>
-      <option>Строителни материали</option>
-      <option>Друго</option>
-    </select>
-    <button data-new="resource">＋ Добави материал</button>
-  </div>
-  <div id="resources" class="grid"></div>
-  <div id="status" class="status"></div>
+ <div class="head"><div><div class="eyebrow">СПОДЕЛЕНО ЗНАНИЕ</div><h1>Учебна библиотека</h1></div></div>
+ <div class="toolbar"><input id="search" placeholder="Търси материал или тема…"><select id="filter"><option value="">Всички предмети</option></select><button data-new="resource">＋ Добави материал</button></div>
+ <div id="resources" class="grid"></div><div id="status" class="status"></div>
 </section>
 
 <section id="p-subjects" class="page hidden">
-  <div class="head">
-    <div>
-      <h1>Учебни предмети</h1>
-      <div class="muted">Избери предмет, за да видиш уроци, материали и чертежи.</div>
-    </div>
-  </div>
-  <div id="subjectCards" class="grid"></div>
-  <div id="subjectDetail" class="hidden">
-    <button class="secondary" id="back">← Всички предмети</button>
-    <h2 id="subjectTitle"></h2>
-    <div class="grid">
-      <div class="card"><h3>Уроци</h3><div id="subLessons"></div></div>
-      <div class="card"><h3>Учебни материали</h3><div id="subResources"></div></div>
-      <div class="card"><h3>Чертежи и упражнения</h3><div id="subDrawings"></div></div>
-    </div>
-  </div>
+ <div class="head"><div><h1>Учебни предмети</h1><div class="muted">Добавяй, редактирай и организирай предметите си.</div></div><button data-new="subject">＋ Добави предмет</button></div>
+ <div id="subjectStatus" class="status"></div><div id="subjectCards" class="grid"></div>
+ <div id="subjectDetail" class="hidden">
+  <button class="secondary" id="back">← Всички предмети</button><h2 id="subjectTitle"></h2>
+  <div class="grid"><div class="card"><h3>Уроци</h3><div id="subLessons"></div></div><div class="card"><h3>Учебни материали</h3><div id="subResources"></div></div><div class="card"><h3>Чертежи и упражнения</h3><div id="subDrawings"></div></div></div>
+ </div>
 </section>
 
-<footer class="foot">
-  <strong>Моят учителски кабинет · Строителна катедра</strong>
-  <span>Архитектура на знанието · 2026/2027</span>
-</footer>
+<footer class="foot"><strong>Моят учителски кабинет · Строителна катедра</strong><span>Архитектура на знанието · 2026/2027</span></footer>
 </div>
 
-<div class="modal" id="modal">
-  <div class="box">
-    <div class="top">
-      <h2 id="modalTitle">Добавяне</h2>
-      <button type="button" class="secondary" id="close">✕</button>
-    </div>
-    <form id="form">
-      <div id="fields"></div>
-      <div class="actions">
-        <button id="save">Запази</button>
-        <button type="button" class="secondary" id="cancel">Отказ</button>
-      </div>
-      <div id="formStatus" class="status"></div>
-    </form>
-  </div>
-</div>
+<div class="modal" id="modal"><div class="box">
+ <div class="top"><h2 id="modalTitle">Добавяне</h2><button type="button" class="secondary" id="close">✕</button></div>
+ <form id="form"><div id="fields"></div><div class="actions"><button id="save">Запази</button><button type="button" class="secondary" id="cancel">Отказ</button></div><div id="formStatus" class="status"></div></form>
+</div></div>
 
-<div class="modal" id="loginModal">
-  <div class="box">
-    <div class="top">
-      <h2>Вход за учители</h2>
-      <button type="button" class="secondary" id="closeLogin">✕</button>
-    </div>
-    <form id="loginForm">
-      <label>Имейл</label>
-      <input type="email" id="email" required>
-      <label>Парола</label>
-      <input type="password" id="password" required>
-      <div class="actions">
-        <button>Вход</button>
-        <button type="button" class="secondary" id="signup">Създай акаунт</button>
-      </div>
-      <div id="loginStatus" class="status"></div>
-    </form>
-  </div>
-</div>
+<div class="modal" id="loginModal"><div class="box">
+ <div class="top"><h2>Вход за учители</h2><button type="button" class="secondary" id="closeLogin">✕</button></div>
+ <form id="loginForm"><label>Имейл</label><input type="email" id="email" required><label>Парола</label><input type="password" id="password" required>
+ <div class="actions"><button>Вход</button><button type="button" class="secondary" id="signup">Създай акаунт</button></div><div id="loginStatus" class="status"></div></form>
+</div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
-
 <script>
 (() => {
-  const $ = id => document.getElementById(id);
-  const cfg = window.APP_CONFIG || {};
+const $ = id => document.getElementById(id);
+const cfg = window.APP_CONFIG || {};
+const db = cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && window.supabase
+ ? window.supabase.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_ANON_KEY) : null;
 
-  const db = cfg.SUPABASE_URL &&
-             cfg.SUPABASE_ANON_KEY &&
-             window.supabase
-    ? window.supabase.createClient(
-        cfg.SUPABASE_URL,
-        cfg.SUPABASE_ANON_KEY
-      )
-    : null;
+let user=null, chosen=null, type='', editing=null;
+let data={lesson:[],event:[],task:[],resource:[],subject:[]};
+const tables={lesson:'lessons',event:'events',task:'tasks',resource:'resources',subject:'subjects'};
+const localKey='cabinetLocalV4';
+const defaultSubjects=['Въведение в професията','Техническо чертане','Геодезия','Строителни материали','Друго'];
+let subjects=[];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const val=id=>$(id)?.value||'';
+const chk=id=>!!$(id)?.checked;
 
-  let user = null;
-  let chosen = '';
-  let type = '';
-  let editing = null;
+function go(p){
+ document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));
+ $('p-'+p).classList.remove('hidden');
+ document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===p));
+ if(p==='subjects')renderSubjects();
+ window.scrollTo(0,0);
+}
 
-  let data = {
-    lesson: [],
-    event: [],
-    task: [],
-    resource: []
-  };
+function subjectNames(){
+ const names=data.subject.map(s=>s.name).filter(Boolean);
+ return [...new Set([...names,...defaultSubjects])].sort((a,b)=>a.localeCompare(b,'bg'));
+}
+function selectHTML(id,label,options,value){
+ return `<label>${label}</label><select id="${id}" required>${options.map(o=>`<option value="${esc(o)}" ${o===value?'selected':''}>${esc(o)}</option>`).join('')}</select>`;
+}
+function inputHTML(id,label,value='',placeholder='',kind='text',required=true){
+ return `<label>${label}</label><input id="${id}" type="${kind}" value="${esc(value)}" placeholder="${esc(placeholder)}" ${required?'required':''}>`;
+}
+function areaHTML(id,label,value='',placeholder=''){
+ return `<label>${label}</label><textarea id="${id}" placeholder="${esc(placeholder)}">${esc(value)}</textarea>`;
+}
+const shareHTML='<label class="check"><input id="shared" type="checkbox" checked> Сподели с всички учители</label>';
+const fileHTML='<label>Прикачи файл (до 50 MB)</label><input id="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.webp">';
 
-  const subjects = [
-    'Въведение в професията',
-    'Техническо чертане',
-    'Геодезия',
-    'Строителни материали',
-    'Друго'
-  ];
+function openForm(t,id=null){
+ type=t;editing=id;
+ const x=data[t].find(a=>String(a.id)===String(id))||{};
+ $('formStatus').textContent='';
+ $('modalTitle').textContent=(id?'Редактирай ':'Добави ')+({lesson:'урок',event:'събитие',task:'задача',resource:'материал',subject:'предмет'}[t]);
+ let h='';
+ if(t==='subject'){
+  h=inputHTML('title','Име на предмета',x.name||'','Напр. ВиК инсталации')+
+    areaHTML('description','Описание',x.description||'','Кратко описание на предмета');
+ }else if(t==='lesson'){
+  h=inputHTML('title','Наименование',x.title,'Въведи заглавие')+
+    selectHTML('subject','Предмет',subjectNames(),x.subject||subjectNames()[0])+
+    inputHTML('class_name','Клас',x.class_name,'Напр. 8. клас')+
+    areaHTML('goals','Учебни цели',x.goals,'Какво ще научат учениците?')+
+    areaHTML('content','Съдържание на урока',x.content,'План, дейности и задачи')+fileHTML+shareHTML;
+ }else if(t==='event'){
+  h=inputHTML('title','Наименование',x.title,'Напр. Посещение')+
+    inputHTML('date','Дата',x.date||new Date().toISOString().slice(0,10),'','date')+
+    inputHTML('time','Час',x.time,'','time',false)+inputHTML('location','Място',x.location,'','text',false)+
+    areaHTML('description','Описание',x.description)+shareHTML;
+ }else if(t==='task'){
+  h=inputHTML('title','Наименование',x.title,'Напр. Проверка')+
+    inputHTML('date','Срок',x.date||new Date().toISOString().slice(0,10),'','date')+
+    selectHTML('priority','Приоритет',['Нисък','Среден','Висок'],x.priority||'Среден')+
+    areaHTML('description','Описание',x.description)+
+    `<label class="check"><input id="done" type="checkbox" ${x.done?'checked':''}> Изпълнена</label>`+shareHTML;
+ }else{
+  h=inputHTML('title','Заглавие',x.title,'Наименование на материала')+
+    selectHTML('subject','Предмет',subjectNames(),x.subject||subjectNames()[0])+
+    selectHTML('category','Категория',['Урок','Презентация','Чертеж','Упражнение','Работен лист','Друго'],x.category||'Урок')+
+    areaHTML('description','Описание',x.description)+fileHTML+shareHTML;
+ }
+ $('fields').innerHTML=h;
+ $('modal').classList.add('open');
+}
 
-  const tables = {
-    lesson: 'lessons',
-    event: 'events',
-    task: 'tasks',
-    resource: 'resources'
-  };
+async function uploadFile(f){
+ if(!f)return {};
+ if(!db)throw Error('Качването на файлове изисква Supabase.');
+ if(f.size>52428800)throw Error('Максималният размер е 50 MB.');
+ const path=Date.now()+'-'+f.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+ const r=await db.storage.from('teacher-resources').upload(path,f);
+ if(r.error)throw r.error;
+ return {file_url:db.storage.from('teacher-resources').getPublicUrl(path).data.publicUrl,file_path:path,file_name:f.name};
+}
 
-  const key = 'cabinetLocalV3';
+async function getCurrentUser(){
+ if(!db)return null;
+ const {data:d,error}=await db.auth.getSession();
+ if(error)throw error;
+ return d.session?.user||null;
+}
 
-  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }[c]));
-
-  const val = id => $(id)?.value || '';
-  const chk = id => !!$(id)?.checked;
-
-  function go(p) {
-    document.querySelectorAll('.page').forEach(x => x.classList.add('hidden'));
-    $('p-' + p).classList.remove('hidden');
-
-    document.querySelectorAll('[data-page]').forEach(x => {
-      x.classList.toggle('active', x.dataset.page === p);
-    });
-
-    if (p === 'subjects') renderSubjects();
-    window.scrollTo(0, 0);
+async function save(e){
+ e.preventDefault();
+ $('save').disabled=true;$('formStatus').textContent='Запазване…';
+ try{
+  let x={...(data[type].find(a=>String(a.id)===String(editing))||{}),updated_at:new Date().toISOString()};
+  if(type==='subject'){
+   x.name=val('title').trim();x.description=val('description').trim();
+   if(!x.name)throw Error('Въведи име на предмета.');
+  }else{
+   x.id=editing||crypto.randomUUID();x.title=val('title').trim();x.shared=chk('shared');
+   if(!x.title)throw Error('Въведи заглавие.');
+   if(type==='lesson')Object.assign(x,{subject:val('subject'),class_name:val('class_name'),goals:val('goals'),content:val('content')});
+   if(type==='event')Object.assign(x,{date:val('date')||null,time:val('time'),location:val('location'),description:val('description')});
+   if(type==='task')Object.assign(x,{date:val('date')||null,priority:val('priority'),description:val('description'),done:chk('done')});
+   if(type==='resource')Object.assign(x,{subject:val('subject'),category:val('category'),description:val('description')});
+   Object.assign(x,await uploadFile($('file')?.files?.[0]));
   }
 
-  function openForm(t, id) {
-    type = t;
-    editing = id || null;
-
-    const x = data[t].find(a => a.id === id) || {};
-
-    $('modalTitle').textContent =
-      (id ? 'Редактирай ' : 'Добави ') +
-      ({lesson:'урок', event:'събитие', task:'задача', resource:'материал'}[t]);
-
-    $('formStatus').textContent = '';
-
-    const inp = (i, l, v='', ph='', ty='text', req=true) =>
-      `<label>${l}</label><input id="${i}" type="${ty}" value="${esc(v)}" placeholder="${ph}" ${req ? 'required' : ''}>`;
-
-    const area = (i, l, v='', ph='') =>
-      `<label>${l}</label><textarea id="${i}" placeholder="${ph}">${esc(v)}</textarea>`;
-
-    const sel = (i, l, opts, v) =>
-      `<label>${l}</label><select id="${i}" required>${
-        opts.map(o => `<option ${o === v ? 'selected' : ''}>${esc(o)}</option>`).join('')
-      }</select>`;
-
-    const file =
-      '<label>Файл (PDF, Word, PowerPoint или изображение)</label>' +
-      '<input id="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.webp">';
-
-    const share =
-      '<label class="check"><input id="shared" type="checkbox" checked> Сподели с всички учители</label>';
-
-    let h = '';
-
-    if (t === 'lesson') {
-      h = inp('title','Наименование',x.title,'Въведи заглавие') +
-          sel('subject','Предмет',subjects,x.subject || subjects[0]) +
-          inp('class_name','Клас',x.class_name,'Напр. 8. клас') +
-          area('goals','Учебни цели',x.goals,'Какво ще научат учениците?') +
-          area('content','Съдържание на урока',x.content,'План, дейности и задачи') +
-          file + share;
-    } else if (t === 'event') {
-      h = inp('title','Наименование',x.title,'Напр. Посещение') +
-          inp('date','Дата',x.date || new Date().toISOString().slice(0,10),'','date') +
-          inp('time','Час',x.time,'','time',false) +
-          inp('location','Място',x.location,'','text',false) +
-          area('description','Описание',x.description) + share;
-    } else if (t === 'task') {
-      h = inp('title','Наименование',x.title,'Напр. Проверка') +
-          inp('date','Срок',x.date || new Date().toISOString().slice(0,10),'','date') +
-          sel('priority','Приоритет',['Нисък','Среден','Висок'],x.priority || 'Среден') +
-          area('description','Описание',x.description) +
-          `<label class="check"><input id="done" type="checkbox" ${x.done ? 'checked' : ''}> Изпълнена</label>` +
-          share;
-    } else {
-      h = inp('title','Заглавие',x.title,'Наименование на материала') +
-          sel('subject','Предмет',subjects,x.subject || subjects[0]) +
-          sel('category','Категория',['Урок','Презентация','Чертеж','Упражнение','Работен лист','Друго'],x.category || 'Урок') +
-          area('description','Описание',x.description) +
-          file + share;
-    }
-
-    $('fields').innerHTML = h;
-    $('modal').classList.add('open');
+  if(db){
+   const current=await getCurrentUser();
+   if(!current)throw Error('Влез в учителския си акаунт и опитай отново.');
+   user=current;
+   x.created_by=editing?(x.created_by||current.id):current.id;
+   x.author_email=x.author_email||current.email;
+   if(type==='subject'&&!editing)x.created_by=current.id;
+   if(type==='subject'&&!editing)x.id=crypto.randomUUID();
+   const result=await db.from(tables[type]).upsert(x);
+   if(result.error)throw result.error;
+  }else{
+   if(type==='subject'){
+    if(!editing)x.id=crypto.randomUUID();
+   }else if(!x.id)x.id=crypto.randomUUID();
+   const i=data[type].findIndex(a=>String(a.id)===String(x.id));
+   if(i<0)data[type].unshift(x);else data[type][i]=x;
+   localStorage.setItem(localKey,JSON.stringify(data));
   }
+  $('modal').classList.remove('open');
+  await load();
+  if(type==='subject')go('subjects');
+  else go(({lesson:'lessons',event:'calendar',task:'tasks',resource:'library'})[type]);
+ }catch(err){$('formStatus').textContent=err.message||'Грешка при запис.'}
+ finally{$('save').disabled=false}
+}
 
-  async function upload(f) {
-    if (!f) return {};
-    if (!db) throw Error('Качването на файлове изисква Supabase.');
-    if (f.size > 52428800) throw Error('Максималният размер е 50 MB.');
-
-    const path = Date.now() + '-' + f.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-
-    const result = await db.storage.from('teacher-resources').upload(path, f);
-    if (result.error) throw result.error;
-
-    return {
-      file_url: db.storage.from('teacher-resources').getPublicUrl(path).data.publicUrl,
-      file_path: path,
-      file_name: f.name
-    };
+async function removeRecord(t,id){
+ const item=data[t].find(a=>String(a.id)===String(id));
+ if(!item)return;
+ if(t==='subject'){
+  const name=item.name;
+  const used=data.lesson.some(x=>x.subject===name)||data.resource.some(x=>x.subject===name);
+  if(used){alert('Този предмет има свързани уроци или материали. Първо промени предмета им или премести съдържанието.');return;}
+ }
+ if(!confirm(t==='subject'?`Да изтрия ли предмета „${item.name}“?`:'Да изтрия ли записа?'))return;
+ try{
+  if(db){
+   const current=await getCurrentUser();
+   if(!current)throw Error('Влез, за да изтриваш.');
+   const r=await db.from(tables[t]).delete().eq('id',id);
+   if(r.error)throw r.error;
+  }else{
+   data[t]=data[t].filter(x=>String(x.id)!==String(id));
+   localStorage.setItem(localKey,JSON.stringify(data));
   }
+  await load();
+  if(t==='subject'){chosen=null;renderSubjects();}
+ }catch(e){alert('Не успях да изтрия записа: '+e.message)}
+}
 
-  // Поправено: вземаме потребителя директно от активната Supabase сесия.
-  async function save(e) {
-    e.preventDefault();
+function card(t,x){
+ if(t==='subject'){
+  return `<article class="card">
+   <span class="pill">УЧЕБЕН ПРЕДМЕТ</span><h3>${esc(x.name)}</h3>
+   <p>${esc(x.description||'Няма описание.')}</p>
+   <p class="muted">${data.lesson.filter(a=>a.subject===x.name).length} урока · ${data.resource.filter(a=>a.subject===x.name).length} материала</p>
+   <div class="actions"><button data-open-subject="${esc(x.id)}">Отвори предмет</button>
+   <button class="secondary" data-edit="subject" data-id="${esc(x.id)}">✏️ Редактирай</button>
+   <button class="danger" data-delete="subject" data-id="${esc(x.id)}">Изтрий</button></div>
+  </article>`;
+ }
+ const meta=t==='lesson'?x.subject:t==='event'?x.date:t==='task'?x.priority:x.subject;
+ let extra='';
+ if(t==='lesson')extra=`<p class="muted">Клас: ${esc(x.class_name||'—')}</p><p>${esc(x.goals||'')}</p><p>${esc(x.content||'')}</p>`;
+ if(t==='event')extra=`<p class="muted">${esc(x.time||'')}</p><p>${esc(x.location||x.description||'')}</p>`;
+ if(t==='task')extra=`<p class="muted">Срок: ${esc(x.date||'—')}</p><label class="check"><input type="checkbox" data-done="${esc(x.id)}" ${x.done?'checked':''}> Изпълнена</label>`;
+ if(t==='resource')extra=`<p class="muted">${esc(x.category||'Материал')} · ${esc(x.description||'')}</p>`;
+ return `<article class="card"><span class="pill">${esc(meta||'')}</span><h3>${esc(x.title)}</h3>${extra}
+ <p class="status">${x.shared!==false?'Споделено с учителите':'Лично'}</p><div class="actions">
+ <button class="secondary" data-edit="${t}" data-id="${esc(x.id)}">✏️ Редактирай</button>
+ ${x.file_url?`<a href="${esc(x.file_url)}" target="_blank" rel="noopener">Отвори / изтегли</a>`:''}
+ <button class="danger" data-delete="${t}" data-id="${esc(x.id)}">Изтрий</button></div></article>`;
+}
 
-    const saveButton = $('save');
-    saveButton.disabled = true;
-    $('formStatus').textContent = 'Запазване…';
+function list(t,id,arr=data[t]){
+ $(id).innerHTML=arr.length?arr.map(x=>card(t,x)).join(''):'<div class="empty">Все още няма записи. Използвай бутона за добавяне.</div>';
+}
 
-    try {
-      let x = {
-        ...(data[type].find(a => a.id === editing) || {}),
-        id: editing || crypto.randomUUID(),
-        title: val('title').trim(),
-        shared: chk('shared'),
-        updated_at: new Date().toISOString()
-      };
+function updateSelects(){
+ const names=subjectNames();
+ ['filter'].forEach(id=>{
+  const el=$(id),old=el.value;
+  el.innerHTML='<option value="">Всички предмети</option>'+names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+  el.value=names.includes(old)?old:'';
+ });
+}
 
-      if (!x.title) throw Error('Моля, въведи заглавие.');
+function filterResources(){
+ const q=$('search').value.toLowerCase(),s=$('filter').value;
+ list('resource','resources',data.resource.filter(x=>
+  (!q||(`${x.title||''} ${x.description||''} ${x.subject||''}`).toLowerCase().includes(q))&&(!s||x.subject===s)
+ ));
+}
 
-      if (type === 'lesson') {
-        Object.assign(x, {
-          subject: val('subject'),
-          class_name: val('class_name'),
-          goals: val('goals'),
-          content: val('content')
-        });
-      }
+function renderSubjects(){
+ $('subjectCards').innerHTML=data.subject.length?data.subject.map(x=>card('subject',x)).join(''):
+ '<div class="empty">Все още няма предмети. Натисни „Добави предмет“, за да създадеш първия.</div>';
+ $('subjectDetail').classList.toggle('hidden',!chosen);
+ $('subjectCards').classList.toggle('hidden',!!chosen);
+ if(!chosen)return;
+ const sub=data.subject.find(x=>String(x.id)===String(chosen));
+ if(!sub){chosen=null;renderSubjects();return;}
+ $('subjectTitle').textContent=sub.name;
+ const l=data.lesson.filter(x=>x.subject===sub.name),r=data.resource.filter(x=>x.subject===sub.name);
+ $('subLessons').innerHTML=l.length?l.map(x=>`<p><b>${esc(x.title)}</b><br>${esc(x.class_name||'')}</p>`).join(''):'<p class="muted">Няма въведени уроци.</p>';
+ $('subResources').innerHTML=r.length?r.map(x=>`<p>${x.file_url?`<a href="${esc(x.file_url)}" target="_blank">${esc(x.title)}</a>`:esc(x.title)}</p>`).join(''):'<p class="muted">Няма въведени материали.</p>';
+ const drawings=r.filter(x=>x.category==='Чертеж'||x.category==='Упражнение');
+ $('subDrawings').innerHTML=drawings.length?drawings.map(x=>`<p>${x.file_url?`<a href="${esc(x.file_url)}" target="_blank">${esc(x.title)}</a>`:esc(x.title)}</p>`).join(''):'<p class="muted">Няма чертежи и упражнения.</p>';
+}
 
-      if (type === 'event') {
-        Object.assign(x, {
-          date: val('date'),
-          time: val('time'),
-          location: val('location'),
-          description: val('description')
-        });
-      }
+function render(){
+ list('lesson','lessons');list('event','events');list('task','tasks');
+ updateSelects();filterResources();renderSubjects();
+ $('nLessons').textContent=data.lesson.length;$('nEvents').textContent=data.event.length;$('nResources').textContent=data.resource.length;
+}
 
-      if (type === 'task') {
-        Object.assign(x, {
-          date: val('date'),
-          priority: val('priority'),
-          description: val('description'),
-          done: chk('done')
-        });
-      }
-
-      if (type === 'resource') {
-        Object.assign(x, {
-          subject: val('subject'),
-          category: val('category'),
-          description: val('description')
-        });
-      }
-
-      Object.assign(x, await upload($('file')?.files?.[0]));
-
-      if (db) {
-        const { data: sessionData, error: sessionError } =
-          await db.auth.getSession();
-
-        if (sessionError) throw sessionError;
-
-        const currentUser = sessionData.session?.user;
-
-        if (!currentUser) {
-          user = null;
-          authUI();
-          throw Error('Сесията е изтекла. Влез отново в учителския си акаунт.');
-        }
-
-        user = currentUser;
-        x.created_by = currentUser.id;
-        x.author_email = currentUser.email;
-
-        const result = await db.from(tables[type]).upsert(x);
-
-        if (result.error) throw result.error;
-      } else {
-        const i = data[type].findIndex(a => a.id === x.id);
-        if (i < 0) data[type].unshift(x);
-        else data[type][i] = x;
-
-        localStorage.setItem(key, JSON.stringify(data));
-      }
-
-      $('modal').classList.remove('open');
-      await load();
-
-      go({
-        lesson: 'lessons',
-        event: 'calendar',
-        task: 'tasks',
-        resource: 'library'
-      }[type]);
-
-    } catch (err) {
-      $('formStatus').textContent = err.message || 'Грешка при запис.';
-    } finally {
-      saveButton.disabled = false;
-    }
+async function load(){
+ if(!db){
+  try{data={...data,...JSON.parse(localStorage.getItem(localKey)||'{}')}}catch{}
+  if(!data.subject.length)data.subject=defaultSubjects.map((name,i)=>({id:'default-'+i,name,description:''}));
+  render();$('status').textContent='Демо режим: данните са само в този браузър.';return;
+ }
+ try{
+  const {data:sess}=await db.auth.getSession();user=sess.session?.user||null;authUI();
+  for(const t of Object.keys(tables)){
+   const r=await db.from(tables[t]).select('*');
+   if(r.error){
+    if(t==='subject')throw new Error('Не успях да заредя предметите: '+r.error.message);
+    if(t==='lesson'||t==='event'||t==='task'){data[t]=[];continue;}
+    throw r.error;
+   }
+   data[t]=r.data||[];
   }
+  render();$('status').textContent='Свързването със Supabase е успешно.';$('subjectStatus').textContent='';
+ }catch(e){
+  $('status').textContent='Грешка при зареждане: '+e.message;
+  $('subjectStatus').textContent=e.message;
+  render();
+ }
+}
 
-  async function remove(t, id) {
-    if (!confirm('Да изтрия ли записа?')) return;
+function authUI(){
+ $('loginOpen').classList.toggle('hidden',!!user);
+ $('logout').classList.toggle('hidden',!user);
+}
 
-    try {
-      if (db) {
-        const { data: sessionData } = await db.auth.getSession();
-        const currentUser = sessionData.session?.user;
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));
+document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>go(b.dataset.goto));
+document.querySelectorAll('[data-new]').forEach(b=>b.onclick=()=>openForm(b.dataset.new));
+$('close').onclick=$('cancel').onclick=()=>$('modal').classList.remove('open');
+$('form').onsubmit=save;
+$('search').oninput=filterResources;
+$('filter').onchange=filterResources;
+$('back').onclick=()=>{chosen=null;renderSubjects();};
 
-        if (!currentUser) throw Error('Влез, за да изтриваш.');
+document.addEventListener('click',e=>{
+ const edit=e.target.closest('[data-edit]');
+ const del=e.target.closest('[data-delete]');
+ const sub=e.target.closest('[data-open-subject]');
+ if(edit)openForm(edit.dataset.edit,edit.dataset.id);
+ if(del)removeRecord(del.dataset.delete,del.dataset.id);
+ if(sub){chosen=sub.dataset.openSubject;renderSubjects();}
+});
 
-        const result = await db.from(tables[t]).delete().eq('id', id);
-        if (result.error) throw result.error;
-      } else {
-        data[t] = data[t].filter(x => x.id !== id);
-        localStorage.setItem(key, JSON.stringify(data));
-      }
+document.addEventListener('change',async e=>{
+ if(!e.target.matches('[data-done]'))return;
+ const task=data.task.find(x=>String(x.id)===String(e.target.dataset.done));
+ if(!task)return;
+ const old=task.done;task.done=e.target.checked;
+ try{
+  if(db){
+   const current=await getCurrentUser();if(!current)throw Error('Влез, за да променяш задачите.');
+   const r=await db.from('tasks').update({done:task.done}).eq('id',task.id);
+   if(r.error)throw r.error;
+  }else localStorage.setItem(localKey,JSON.stringify(data));
+ }catch(err){task.done=old;e.target.checked=old;alert(err.message);}
+ render();
+});
 
-      await load();
-    } catch (e) {
-      alert(e.message);
-    }
-  }
+$('loginOpen').onclick=()=>$('loginModal').classList.add('open');
+$('closeLogin').onclick=()=>$('loginModal').classList.remove('open');
 
-  function card(t, x) {
-    const meta = t === 'lesson' ? x.subject :
-                 t === 'event' ? x.date :
-                 t === 'task' ? x.priority : x.subject;
+$('loginForm').onsubmit=async e=>{
+ e.preventDefault();
+ if(!db){$('loginStatus').textContent='Не е настроена връзката със Supabase.';return;}
+ const r=await db.auth.signInWithPassword({email:val('email'),password:val('password')});
+ $('loginStatus').textContent=r.error?r.error.message:'Успешен вход.';
+ if(r.data.user){user=r.data.user;authUI();$('loginModal').classList.remove('open');await load();}
+};
 
-    let extra = '';
+$('signup').onclick=async()=>{
+ if(!db){$('loginStatus').textContent='Не е настроена връзката със Supabase.';return;}
+ const r=await db.auth.signUp({email:val('email'),password:val('password')});
+ $('loginStatus').textContent=r.error?r.error.message:'Провери имейла си за потвърждение.';
+};
 
-    if (t === 'lesson') {
-      extra = `<p class="muted">Клас: ${esc(x.class_name || '—')}</p>
-               <p>${esc(x.goals || '')}</p>
-               <p>${esc(x.content || '')}</p>`;
-    } else if (t === 'event') {
-      extra = `<p class="muted">${esc(x.time || '')}</p>
-               <p class="muted">${esc(x.location || x.description || '')}</p>`;
-    } else if (t === 'task') {
-      extra = `<p class="muted">Срок: ${esc(x.date || '—')}</p>
-        <label class="check"><input type="checkbox" data-done="${esc(x.id)}" ${x.done ? 'checked' : ''}> Изпълнена</label>`;
-    } else {
-      extra = `<p class="muted">${esc(x.category || 'Материал')} · ${esc(x.description || '')}</p>`;
-    }
+$('logout').onclick=async()=>{
+ if(db)await db.auth.signOut();
+ user=null;authUI();
+};
 
-    return `<article class="card">
-      <span class="pill">${esc(meta || '')}</span>
-      <h3>${esc(x.title)}</h3>
-      ${extra}
-      <p class="status">${x.shared !== false ? 'Споделено с учителите' : 'Лично'}</p>
-      <div class="actions">
-        <button type="button" class="secondary" data-edit="${t}" data-id="${esc(x.id)}">✏️ Редактирай</button>
-        ${x.file_url ? `<a href="${esc(x.file_url)}" target="_blank" rel="noopener">Отвори / изтегли</a>` : ''}
-        <button type="button" class="danger" data-delete="${t}" data-id="${esc(x.id)}">Изтрий</button>
-      </div>
-    </article>`;
-  }
-
-  function list(t, id, arr = data[t]) {
-    $(id).innerHTML = arr.length
-      ? arr.map(x => card(t, x)).join('')
-      : '<div class="empty">Все още няма записи. Използвай бутона за добавяне.</div>';
-  }
-
-  function filterResources() {
-    const q = $('search').value.toLowerCase();
-    const s = $('filter').value;
-
-    list('resource', 'resources', data.resource.filter(x =>
-      (!q || (x.title + ' ' + x.description + ' ' + x.subject).toLowerCase().includes(q)) &&
-      (!s || x.subject === s)
-    ));
-  }
-
-  function renderSubjects() {
-    $('subjectCards').innerHTML = subjects.map(s => `
-      <button type="button" class="card" style="text-align:left;color:var(--navy);background:white"
-        data-subject="${esc(s)}">
-        <span class="pill">ПРЕДМЕТ</span>
-        <h3>${esc(s)}</h3>
-        <p>${data.lesson.filter(x => x.subject === s).length} урока ·
-        ${data.resource.filter(x => x.subject === s).length} материала</p>
-        Отвори →
-      </button>`).join('');
-
-    $('subjectDetail').classList.toggle('hidden', !chosen);
-    $('subjectCards').classList.toggle('hidden', !!chosen);
-
-    if (chosen) {
-      $('subjectTitle').textContent = chosen;
-
-      const lessons = data.lesson.filter(x => x.subject === chosen);
-      const resources = data.resource.filter(x => x.subject === chosen);
-
-      $('subLessons').innerHTML = lessons.length
-        ? lessons.map(x => `<p><b>${esc(x.title)}</b><br>${esc(x.class_name || '')}</p>`).join('')
-        : '<p class="muted">Няма въведени уроци.</p>';
-
-      $('subResources').innerHTML = resources.length
-        ? resources.map(x => `<p><a href="${esc(x.file_url || '#')}" target="_blank">${esc(x.title)}</a></p>`).join('')
-        : '<p class="muted">Няма въведени материали.</p>';
-
-      const drawings = resources.filter(x => x.category === 'Чертеж');
-
-      $('subDrawings').innerHTML = drawings.length
-        ? drawings.map(x => `<p><a href="${esc(x.file_url || '#')}" target="_blank">${esc(x.title)}</a></p>`).join('')
-        : '<p class="muted">Няма чертежи.</p>';
-    }
-  }
-
-  function render() {
-    list('lesson', 'lessons');
-    list('event', 'events');
-    list('task', 'tasks');
-    filterResources();
-
-    $('nLessons').textContent = data.lesson.length;
-    $('nEvents').textContent = data.event.length;
-    $('nResources').textContent = data.resource.length;
-
-    if (!$('subjectDetail').classList.contains('hidden')) renderSubjects();
-  }
-
-  async function load() {
-    if (!db) {
-      try {
-        data = JSON.parse(localStorage.getItem(key)) || data;
-      } catch {}
-      render();
-      $('status').textContent =
-        'Демо режим: данните се пазят само в този браузър и не са общи.';
-      return;
-    }
-
-    try {
-      for (const t of Object.keys(tables)) {
-        const result = await db.from(tables[t]).select('*');
-
-        if (result.error) {
-          if (t === 'lesson' || t === 'event' || t === 'task') {
-            data[t] = [];
-            continue;
-          }
-          throw result.error;
-        }
-
-        data[t] = result.data || [];
-      }
-
-      render();
-      $('status').textContent = 'Свързването със Supabase е успешно.';
-    } catch (e) {
-      $('status').textContent = 'Грешка при зареждане: ' + e.message;
-      render();
-    }
-  }
-
-  function authUI() {
-    $('loginOpen').classList.toggle('hidden', !!user);
-    $('logout').classList.toggle('hidden', !user);
-  }
-
-  document.querySelectorAll('[data-page]').forEach(b =>
-    b.onclick = () => go(b.dataset.page)
-  );
-
-  document.querySelectorAll('[data-goto]').forEach(b =>
-    b.onclick = () => go(b.dataset.goto)
-  );
-
-  document.querySelectorAll('[data-new]').forEach(b =>
-    b.onclick = () => openForm(b.dataset.new)
-  );
-
-  $('close').onclick = $('cancel').onclick = () =>
-    $('modal').classList.remove('open');
-
-  $('form').onsubmit = save;
-  $('search').oninput = filterResources;
-  $('filter').onchange = filterResources;
-
-  $('back').onclick = () => {
-    chosen = '';
-    renderSubjects();
-  };
-
-  document.addEventListener('click', e => {
-    const edit = e.target.closest('[data-edit]');
-    const del = e.target.closest('[data-delete]');
-    const subject = e.target.closest('[data-subject]');
-
-    if (edit) openForm(edit.dataset.edit, edit.dataset.id);
-    if (del) remove(del.dataset.delete, del.dataset.id);
-
-    if (subject) {
-      chosen = subject.dataset.subject;
-      renderSubjects();
-    }
-  });
-
-  document.addEventListener('change', async e => {
-    if (!e.target.matches('[data-done]')) return;
-
-    const task = data.task.find(x => x.id === e.target.dataset.done);
-    if (!task) return;
-
-    const newDone = e.target.checked;
-
-    try {
-      if (db) {
-        const { data: sessionData } = await db.auth.getSession();
-        if (!sessionData.session?.user) throw Error('Влез, за да променяш задачите.');
-
-        const result = await db.from('tasks')
-          .update({ done: newDone })
-          .eq('id', task.id);
-
-        if (result.error) throw result.error;
-      }
-
-      task.done = newDone;
-
-      if (!db) localStorage.setItem(key, JSON.stringify(data));
-      render();
-    } catch (err) {
-      e.target.checked = !newDone;
-      alert(err.message);
-    }
-  });
-
-  $('loginOpen').onclick = () => $('loginModal').classList.add('open');
-  $('closeLogin').onclick = () => $('loginModal').classList.remove('open');
-
-  $('loginForm').onsubmit = async e => {
-    e.preventDefault();
-
-    if (!db) {
-      $('loginStatus').textContent = 'Настрой Supabase в config.js.';
-      return;
-    }
-
-    const result = await db.auth.signInWithPassword({
-      email: val('email'),
-      password: val('password')
-    });
-
-    $('loginStatus').textContent =
-      result.error ? result.error.message : 'Успешен вход.';
-
-    if (result.data.user) {
-      user = result.data.user;
-      authUI();
-      $('loginModal').classList.remove('open');
-      await load();
-    }
-  };
-
-  $('signup').onclick = async () => {
-    if (!db) {
-      $('loginStatus').textContent = 'Настрой Supabase в config.js.';
-      return;
-    }
-
-    const result = await db.auth.signUp({
-      email: val('email'),
-      password: val('password')
-    });
-
-    $('loginStatus').textContent = result.error
-      ? result.error.message
-      : 'Провери имейла си за потвърждение.';
-  };
-
-  $('logout').onclick = async () => {
-    if (db) await db.auth.signOut();
-    user = null;
-    authUI();
-  };
-
-  if (db) {
-    db.auth.getSession().then(result => {
-      user = result.data.session?.user || null;
-      authUI();
-      load();
-    });
-
-    db.auth.onAuthStateChange((_event, session) => {
-      user = session?.user || null;
-      authUI();
-    });
-  } else {
-    load();
-  }
+if(db){
+ db.auth.onAuthStateChange((_event,session)=>{user=session?.user||null;authUI();});
+ load();
+}else load();
 })();
 </script>
 </body>
