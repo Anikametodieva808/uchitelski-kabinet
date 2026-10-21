@@ -38,18 +38,13 @@ h1{font:800 clamp(30px,4vw,44px) Manrope,sans-serif;color:var(--navy);margin:8px
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 38px}
 .stat{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;gap:12px;align-items:center;min-height:115px}
 .stat-icon{width:48px;height:48px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#e1eff9;color:#1765a0;font-size:23px}
-.stat:nth-child(2) .stat-icon,.stat:nth-child(3) .stat-icon{background:#f7efdf;color:#a87328}
 .stat strong{display:block;font:800 34px Manrope,sans-serif;color:var(--navy);margin:4px 0}
 .stat span{font-size:13px;color:var(--muted)}
 h2.section-title{font:800 29px Manrope,sans-serif;color:var(--navy);margin:28px 0 18px}
 .quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.quick{display:flex;align-items:center;gap:15px;text-align:left;background:white;border:1px solid var(--line);border-radius:17px;padding:18px;color:var(--navy);text-decoration:none;min-width:0}
-.quick:hover{border-color:#d6b57e;box-shadow:0 5px 18px #17324d0c}
+.quick{display:flex;align-items:center;gap:15px;text-align:left;background:white;border:1px solid var(--line);border-radius:17px;padding:18px;color:var(--navy);min-width:0}
+.quick:hover{border-color:#d6b57e}
 .quick-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#e1eff9;font-size:25px;flex-shrink:0}
-.quick:nth-child(2) .quick-icon,.quick:nth-child(4) .quick-icon{background:#f8edda}
-.quick:nth-child(3) .quick-icon{background:#f8e1e1}
-.quick:nth-child(5) .quick-icon{background:#e1f1e3}
-.quick:nth-child(6) .quick-icon{background:#ebe3f5}
 .quick strong{display:block;font-weight:800;margin-bottom:5px}
 .quick small{display:block;color:var(--muted);line-height:1.5}
 .section-head,.heading{display:flex;align-items:center;justify-content:space-between;gap:15px}
@@ -59,53 +54,45 @@ h2.section-title{font:800 29px Manrope,sans-serif;color:var(--navy);margin:28px 
 .tools{display:grid;grid-template-columns:minmax(180px,1fr) 230px auto;gap:10px;margin:18px 0}
 .tools input,.tools select{min-width:0;width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:white}
 #addResource{border:0;background:var(--navy);color:white;border-radius:12px;padding:14px;font-weight:700}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.art{height:100px;display:grid;place-items:center;background:linear-gradient(135deg,#17324d,#7896aa);color:white;font-size:38px}
-.art.ppt{background:linear-gradient(135deg,#9d654d,#d8aa87)}
-.art.pdf{background:linear-gradient(135deg,#8c514a,#d69a8d)}
-.art.word{background:linear-gradient(135deg,#285b8a,#8eb4d4)}
-.art.image{background:linear-gradient(135deg,#9b8359,#e0cfac)}
-.cardbody{padding:17px;display:flex;flex-direction:column;flex:1;min-width:0}
-.tag{align-self:flex-start;background:#f5ecdc;color:var(--navy);padding:7px 10px;border-radius:7px;font-size:11px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
 .card h3{font:800 17px Manrope,sans-serif;color:var(--navy);overflow-wrap:anywhere}
-.card p,.note{font-size:13px;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
-.cardfoot{border-top:1px solid var(--line);padding-top:12px;margin-top:auto;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.file-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.card p{font-size:13px;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
+.tag{display:inline-block;background:#f5ecdc;color:var(--navy);padding:7px 10px;border-radius:7px;font-size:11px}
+.art{height:90px;display:grid;place-items:center;background:linear-gradient(135deg,#17324d,#7896aa);color:white;font-size:36px;border-radius:10px}
+.art.ppt{background:linear-gradient(135deg,#9d654d,#d8aa87)}.art.pdf{background:linear-gradient(135deg,#8c514a,#d69a8d)}.art.word{background:linear-gradient(135deg,#285b8a,#8eb4d4)}.art.image{background:linear-gradient(135deg,#9b8359,#e0cfac)}
+.cardbody{padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.cardfoot{border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.file-actions{display:flex;gap:8px;flex-wrap:wrap}
 .file-actions a{background:var(--navy);color:white;text-decoration:none;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:700}
 .file-actions a.download{background:#f5ecdc;color:var(--navy)}
 .empty{background:white;border:1px dashed var(--line);padding:25px;border-radius:14px;color:var(--muted);text-align:center}
 .subjectgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.subjectgrid a{background:white;border:1px solid var(--line);border-radius:15px;padding:20px;text-decoration:none;color:var(--navy)}
-.subjectgrid a:hover{border-color:var(--gold)}
-.subjectgrid h3{font:800 16px Manrope,sans-serif}
-.subjectgrid p{color:var(--muted);font-size:13px;line-height:1.6}
+.subjectgrid button{background:white;border:1px solid var(--line);border-radius:15px;padding:20px;text-align:left;color:var(--navy)}
+.subjectgrid h3{font:800 16px Manrope,sans-serif}.subjectgrid p{color:var(--muted);font-size:13px;line-height:1.6}
 #backendNote{margin-top:16px}
 footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.modal{width:min(600px,calc(100% - 24px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:18px;padding:26px;background:white}
+.modal{width:min(560px,calc(100% - 24px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:20px;padding:25px;background:white;color:#263443;box-shadow:0 20px 70px #17324d22}
 .modal::backdrop{background:#10263b99;backdrop-filter:blur(4px)}
-.modal h2{font:800 28px Manrope,sans-serif;color:var(--navy);margin:12px 0 20px}
-.modal input,.modal select,.modal textarea{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;margin:7px 0 14px}
+.modal h2{font:800 28px Manrope,sans-serif;color:var(--navy);margin:10px 0}
+.modal .intro{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px}
+.modal input,.modal select,.modal textarea{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;margin:7px 0 16px;background:#fbf8f1;color:#263443}
 .field-label{display:block;font-size:13px;font-weight:700;color:#526477}
-.modal .actions{display:flex;gap:9px;flex-wrap:wrap}
+.modal .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}
 .modal .actions button{border:0;border-radius:10px;padding:13px 17px;background:var(--navy);color:white;font-weight:700}
 .modal .actions .secondary{background:#f1e8d8;color:var(--navy)}
 .close{display:flex;justify-content:flex-end}
 .close button{border:0;background:transparent;color:#718078;font-size:24px}
-.file-help{font-size:12px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);line-height:1.6}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cards,.subjectgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.tools{grid-template-columns:1fr}.heading{display:block}}
 @media(max-width:600px){header{padding:15px 18px}.brand strong{font-size:17px}nav{margin:10px 12px 0;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap;padding:11px;font-size:12px}main{padding:20px 14px}.welcome{align-items:flex-start}.banner{padding:20px}.blueprint{display:none}.stats{gap:9px}.stat{padding:11px;gap:8px;min-height:100px}.stat-icon{width:36px;height:36px;font-size:18px}.stat strong{font-size:27px}.stat span{font-size:11px}.quick-grid{gap:9px}.quick{padding:12px;gap:9px;align-items:flex-start;flex-direction:column}.quick-icon{width:40px;height:40px;font-size:20px}.quick small{font-size:11px}.cards,.subjectgrid{grid-template-columns:1fr}.heading h2{font-size:27px}}
 </style>
 </head>
 <body>
 <header>
-  <a class="brand" href="#home" data-page="home">
-    <span class="brand-mark">⌂</span>
-    <span><strong>Моят учителски кабинет</strong><small>Архитектура на знанието · 2026/2027</small></span>
-  </a>
+  <a class="brand" href="#home" data-page="home"><span class="brand-mark">⌂</span><span><strong>Моят учителски кабинет</strong><small>Архитектура на знанието · 2026/2027</small></span></a>
   <button id="loginOpen" class="primary">Вход за учители</button>
 </header>
-
 <nav aria-label="Основна навигация">
   <a href="#home" data-page="home" class="active">⌂ Начало</a>
   <a href="#uroci" data-page="uroci">▤ Моите уроци</a>
@@ -116,113 +103,100 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
 </nav>
 
 <main>
-  <div id="page-home" class="page active">
-    <section class="welcome">
-      <div><div class="eyebrow">ЛИЧЕН РАБОТЕН КАБИНЕТ</div><h1>Добре дошла!</h1></div>
-      <button class="primary" id="quickAdd">＋ Добави</button>
-    </section>
-    <section class="banner">
-      <div><div class="eyebrow" style="color:#ad762f">ТВОЕТО МЯСТО ЗА ИДЕИ И ЗНАНИЯ</div><h2>Всяка добра идея започва с чертеж.</h2><p>Уроци, планове и строителни вдъхновения — подредени в твоя личен кабинет.</p></div>
-      <div class="blueprint" aria-hidden="true">⌂</div>
-    </section>
-    <section class="stats">
-      <div class="stat"><div class="stat-icon">▤</div><div><span>Моите уроци</span><strong id="lessonCount">0</strong><span>запазени теми</span></div></div>
-      <div class="stat"><div class="stat-icon">☑</div><div><span>Активни задачи</span><strong id="taskCount">0</strong><span>за изпълнение</span></div></div>
-      <div class="stat"><div class="stat-icon">▦</div><div><span>Предстоящи събития</span><strong id="eventCount">0</strong><span>в календара</span></div></div>
-      <div class="stat"><div class="stat-icon">▤</div><div><span>Материали</span><strong id="materialCount">0</strong><span>в библиотеката</span></div></div>
-    </section>
-    <h2 class="section-title">Бърз достъп</h2>
-    <section class="quick-grid">
-      <button class="quick" id="quickLesson"><span class="quick-icon">📘</span><span><strong>Нов урок</strong><small>Тема, клас, цели и бележки</small></span></button>
-      <button class="quick" id="quickTask"><span class="quick-icon">☑️</span><span><strong>Нова задача</strong><small>Добави срок и приоритет</small></span></button>
-      <button class="quick" id="quickEvent"><span class="quick-icon">🗓️</span><span><strong>Събитие в календара</strong><small>Срок, посещение или среща</small></span></button>
-      <button class="quick" id="quickMaterial"><span class="quick-icon">📁</span><span><strong>Нов материал</strong><small>Файл, снимка или чертеж</small></span></button>
-      <button class="quick" data-goto="predmeti"><span class="quick-icon">📚</span><span><strong>Моите предмети</strong><small>Организирай учебните теми</small></span></button>
-      <button class="quick" id="backupButton"><span class="quick-icon">💾</span><span><strong>Резервно копие</strong><small>Изтегли резервен файл</small></span></button>
-    </section>
-    <div class="section-head"><h2 class="section-title">Предстоящи задачи</h2><button class="secondary" data-goto="zadachi">Всички задачи →</button></div>
-    <div id="taskEmpty" class="task-empty">☑　Нямаш активни задачи.</div>
+<section id="page-home" class="page active">
+  <div class="welcome"><div><div class="eyebrow">ЛИЧЕН РАБОТЕН КАБИНЕТ</div><h1>Добре дошла!</h1></div><button class="primary" id="quickAdd">＋ Добави</button></div>
+  <div class="banner"><div><div class="eyebrow" style="color:#ad762f">ТВОЕТО МЯСТО ЗА ИДЕИ И ЗНАНИЯ</div><h2>Всяка добра идея започва с чертеж.</h2><p>Уроци, планове и строителни вдъхновения — подредени в твоя личен кабинет.</p></div><div class="blueprint">⌂</div></div>
+  <section class="stats">
+    <div class="stat"><div class="stat-icon">▤</div><div><span>Моите уроци</span><strong id="lessonCount">0</strong><span>запазени теми</span></div></div>
+    <div class="stat"><div class="stat-icon">☑</div><div><span>Активни задачи</span><strong id="taskCount">0</strong><span>за изпълнение</span></div></div>
+    <div class="stat"><div class="stat-icon">▦</div><div><span>Предстоящи събития</span><strong id="eventCount">0</strong><span>в календара</span></div></div>
+    <div class="stat"><div class="stat-icon">▤</div><div><span>Материали</span><strong id="materialCount">0</strong><span>в библиотеката</span></div></div>
+  </section>
+  <h2 class="section-title">Бърз достъп</h2>
+  <div class="quick-grid">
+    <button class="quick" data-open-form="lesson"><span class="quick-icon">📘</span><span><strong>Нов урок</strong><small>Тема, клас, цели и бележки</small></span></button>
+    <button class="quick" data-open-form="task"><span class="quick-icon">☑️</span><span><strong>Нова задача</strong><small>Добави срок и приоритет</small></span></button>
+    <button class="quick" data-open-form="event"><span class="quick-icon">🗓️</span><span><strong>Събитие в календара</strong><small>Срок, посещение или среща</small></span></button>
+    <button class="quick" id="quickMaterial"><span class="quick-icon">📁</span><span><strong>Нов материал</strong><small>Файл, снимка или чертеж</small></span></button>
+    <button class="quick" data-page="predmeti"><span class="quick-icon">📚</span><span><strong>Моите предмети</strong><small>Организирай учебните теми</small></span></button>
+    <button class="quick" id="backupButton"><span class="quick-icon">💾</span><span><strong>Резервно копие</strong><small>Изтегли данните си</small></span></button>
   </div>
+  <div class="section-head"><h2 class="section-title">Предстоящи задачи</h2><button class="secondary" data-page="zadachi">Всички задачи →</button></div>
+  <div id="homeTasks" class="task-empty">Нямаш активни задачи.</div>
+</section>
 
-  <section id="page-uroci" class="page">
-    <div class="eyebrow">ЛИЧНО СЪДЪРЖАНИЕ</div>
-    <div class="heading"><div><h2>Моите уроци</h2></div><p>Създавай и подреждай плановете и темите си.</p></div>
-    <button class="primary" id="addLesson">＋ Нов урок</button>
-    <div id="savedLessons" class="cards" style="margin-top:18px"></div>
-  </section>
+<section id="page-uroci" class="page">
+  <div class="eyebrow">ЛИЧНО СЪДЪРЖАНИЕ</div><div class="heading"><div><h2>Моите уроци</h2></div><p>Създавай и подреждай плановете и темите си.</p></div>
+  <button class="primary" data-open-form="lesson">＋ Нов урок</button><div id="savedLessons" class="cards"></div>
+</section>
 
-  <section id="page-kalendar" class="page">
-    <div class="eyebrow">ПЛАНИРАНЕ</div>
-    <div class="heading"><div><h2>Моят календар</h2></div><p>Посещения, срещи, събития и учебни срокове.</p></div>
-    <button class="primary" id="addEvent">＋ Ново събитие</button>
-    <div id="savedEvents" class="cards" style="margin-top:18px"></div>
-  </section>
+<section id="page-kalendar" class="page">
+  <div class="eyebrow">ПЛАНИРАНЕ</div><div class="heading"><div><h2>Моят календар</h2></div><p>Посещения, срещи, събития и учебни срокове.</p></div>
+  <button class="primary" data-open-form="event">＋ Ново събитие</button><div id="savedEvents" class="cards"></div>
+</section>
 
-  <section id="page-zadachi" class="page">
-    <div class="eyebrow">ОРГАНИЗАЦИЯ</div>
-    <div class="heading"><div><h2>Моите задачи</h2></div><p>Следи какво предстои и отбелязвай изпълненото.</p></div>
-    <button class="primary" id="addTask">＋ Нова задача</button>
-    <div id="taskPageList" class="task-empty" style="margin-top:18px">Нямаш активни задачи.</div>
-  </section>
+<section id="page-zadachi" class="page">
+  <div class="eyebrow">ОРГАНИЗАЦИЯ</div><div class="heading"><div><h2>Моите задачи</h2></div><p>Следи какво предстои и отбелязвай изпълненото.</p></div>
+  <button class="primary" data-open-form="task">＋ Нова задача</button><div id="savedTasks" class="cards"></div>
+</section>
 
-  <section id="page-biblioteka" class="page">
-    <div class="eyebrow">СПОДЕЛЕНО ЗНАНИЕ</div>
-    <div class="heading"><div><h2>Учебна библиотека</h2></div><p>Търси, отваряй и изтегляй материали и чертежи.</p></div>
-    <div class="tools">
-      <input id="searchInput" type="search" placeholder="Търси материал или тема…" aria-label="Търси материал">
-      <select id="categoryFilter" aria-label="Филтър по предмет">
-        <option value="">Всички предмети</option>
-        <option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option>
-      </select>
-      <button id="addResource">＋ Добави материал</button>
-    </div>
-    <div id="resourceGrid" class="cards"></div>
-    <p id="emptyState" class="empty" hidden>Няма намерени материали. Промени търсенето или добави нов ресурс.</p>
-    <p id="backendNote" class="note" role="status"></p>
-  </section>
+<section id="page-biblioteka" class="page">
+  <div class="eyebrow">СПОДЕЛЕНО ЗНАНИЕ</div><div class="heading"><div><h2>Учебна библиотека</h2></div><p>Търси, отваряй и изтегляй материали и чертежи.</p></div>
+  <div class="tools">
+    <input id="searchInput" type="search" placeholder="Търси материал или тема…" aria-label="Търси материал">
+    <select id="categoryFilter" aria-label="Филтър по предмет"><option value="">Всички предмети</option><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select>
+    <button id="addResource">＋ Добави материал</button>
+  </div>
+  <div id="resourceGrid" class="cards"></div><p id="emptyState" class="empty" hidden>Няма намерени материали.</p><p id="backendNote" class="note" role="status"></p>
+</section>
 
-  <section id="page-predmeti" class="page">
-    <div class="eyebrow">ПОДРЕДЕНИ ПО ДИСЦИПЛИНИ</div>
-    <div class="heading"><div><h2>Моите предмети</h2></div><p>Избери предмет, за да прегледаш материалите по него.</p></div>
-    <div class="subjectgrid">
-      <a href="#biblioteka" data-subject="Въведение в професията"><h3>Въведение в професията</h3><p>Професии, безопасност, инструменти и организация.</p></a>
-      <a href="#biblioteka" data-subject="Техническо чертане"><h3>Техническо чертане</h3><p>Линии, мащаби и геометрични построения.</p></a>
-      <a href="#biblioteka" data-subject="Строителни материали"><h3>Строителни материали</h3><p>Свойства, приложение и избор на материали.</p></a>
-      <a href="#biblioteka" data-subject="Геодезия"><h3>Геодезия</h3><p>Измервания, инструменти и работа на терен.</p></a>
-      <a href="#biblioteka" data-subject="Практическо обучение"><h3>Практическо обучение</h3><p>Работни операции и практически задачи.</p></a>
-    </div>
-  </section>
+<section id="page-predmeti" class="page">
+  <div class="eyebrow">ПОДРЕДЕНИ ПО ДИСЦИПЛИНИ</div><div class="heading"><div><h2>Моите предмети</h2></div><p>Избери предмет, за да прегледаш материалите по него.</p></div>
+  <div class="subjectgrid">
+    <button data-subject="Въведение в професията"><h3>Въведение в професията</h3><p>Професии, безопасност, инструменти и организация.</p></button>
+    <button data-subject="Техническо чертане"><h3>Техническо чертане</h3><p>Линии, мащаби и геометрични построения.</p></button>
+    <button data-subject="Строителни материали"><h3>Строителни материали</h3><p>Свойства, приложение и избор на материали.</p></button>
+    <button data-subject="Геодезия"><h3>Геодезия</h3><p>Измервания, инструменти и работа на терен.</p></button>
+    <button data-subject="Практическо обучение"><h3>Практическо обучение</h3><p>Работни операции и практически задачи.</p></button>
+  </div>
+</section>
 </main>
-
 <footer><strong>Моят учителски кабинет · Строителна катедра</strong><span>Архитектура на знанието · 2026/2027</span></footer>
 
 <dialog id="loginDialog" class="modal">
-  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form>
-  <div class="eyebrow">ПРОСТРАНСТВО ЗА ЕКИПА</div><h2>Вход за учители</h2>
-  <form id="authForm">
-    <label class="field-label" for="email">Имейл</label><input id="email" type="email" autocomplete="email" required>
-    <label class="field-label" for="password">Парола</label><input id="password" type="password" autocomplete="current-password" minlength="6" required>
-    <div class="actions"><button id="signIn" type="submit">Вход</button><button id="signUp" class="secondary" type="button">Създай профил</button></div>
-  </form>
-  <p id="authMessage" class="note" role="status"></p>
+  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form><div class="eyebrow">ПРОСТРАНСТВО ЗА ЕКИПА</div><h2>Вход за учители</h2>
+  <form id="authForm"><label class="field-label" for="email">Имейл</label><input id="email" type="email" autocomplete="email" required><label class="field-label" for="password">Парола</label><input id="password" type="password" autocomplete="current-password" minlength="6" required><div class="actions"><button id="signIn" type="submit">Вход</button><button id="signUp" class="secondary" type="button">Създай профил</button></div></form><p id="authMessage" class="note" role="status"></p>
 </dialog>
 
 <dialog id="resourceDialog" class="modal">
-  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form>
-  <div class="eyebrow">СПОДЕЛЕНА БИБЛИОТЕКА</div><h2>Добави материал</h2>
+  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form><div class="eyebrow">СПОДЕЛЕНА БИБЛИОТЕКА</div><h2>Добави материал</h2>
   <form id="resourceForm">
-    <label class="field-label" for="rTitle">Заглавие</label><input id="rTitle" placeholder="Напр. Основи на техническото чертане" required maxlength="160">
-    <label class="field-label" for="rCategory">Предмет</label>
-    <select id="rCategory"><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select>
-    <label class="field-label" for="rType">Вид материал</label>
-    <select id="rType"><option>Презентация</option><option>PDF документ</option><option>Word документ</option><option>Снимка</option><option>Работен лист</option><option>Тест</option><option>Практическа задача</option><option>Външна връзка</option></select>
-    <label class="field-label" for="rDescription">Кратко описание</label><textarea id="rDescription"></textarea>
+    <label class="field-label" for="rTitle">Заглавие</label><input id="rTitle" required maxlength="160">
+    <label class="field-label" for="rCategory">Предмет</label><select id="rCategory"><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select>
+    <label class="field-label" for="rType">Вид материал</label><select id="rType"><option>Презентация</option><option>PDF документ</option><option>Word документ</option><option>Снимка</option><option>Работен лист</option><option>Тест</option><option>Практическа задача</option><option>Външна връзка</option></select>
+    <label class="field-label" for="rDescription">Описание</label><textarea id="rDescription"></textarea>
     <label class="field-label" for="rFile">Файл (PPTX, PDF, DOCX или снимка)</label><input id="rFile" type="file" accept=".pptx,.pdf,.docx,.jpg,.jpeg,.png,.webp">
-    <small class="file-help">Максимален размер: 50 MB.</small>
     <label class="field-label" for="rUrl">Или външна връзка</label><input id="rUrl" type="url" placeholder="https://…">
     <div class="actions"><button id="saveResource" type="submit">Запази материала</button><button class="secondary" id="cancelResource" type="button">Отказ</button></div>
+  </form><p id="resourceMessage" class="note" role="status"></p>
+</dialog>
+
+<dialog id="plannerDialog" class="modal">
+  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form>
+  <div class="eyebrow" id="plannerEyebrow">МОЯТ КАБИНЕТ</div><h2 id="plannerTitle">Добави запис</h2><p id="plannerIntro" class="intro">Попълни информацията по-долу.</p>
+  <form id="plannerForm">
+    <label class="field-label" for="pTitle">Наименование</label><input id="pTitle" maxlength="160" required placeholder="Въведи заглавие">
+    <div id="lessonFields" hidden>
+      <label class="field-label" for="pSubject">Предмет</label><select id="pSubject"><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select>
+      <label class="field-label" for="pGrade">Клас</label><input id="pGrade" placeholder="Напр. 8. клас">
+      <label class="field-label" for="pGoals">Учебни цели</label><textarea id="pGoals" rows="3" placeholder="Какво ще научат учениците?"></textarea>
+    </div>
+    <div id="dateFields" hidden><label class="field-label" for="pDate">Дата / краен срок</label><input id="pDate" type="date"></div>
+    <div id="taskFields" hidden><label class="field-label" for="pPriority">Приоритет</label><select id="pPriority"><option>Среден</option><option>Висок</option><option>Нисък</option></select></div>
+    <div id="eventFields" hidden><label class="field-label" for="pLocation">Място (по желание)</label><input id="pLocation" placeholder="Място на събитието"><label class="field-label" for="pNotes">Описание и бележки</label><textarea id="pNotes" rows="3" placeholder="Добави подробности..."></textarea></div>
+    <div class="actions"><button type="submit" id="savePlanner">Запази</button><button type="button" class="secondary" id="cancelPlanner">Отказ</button></div>
+    <p id="plannerMessage" class="note" role="status"></p>
   </form>
-  <p id="resourceMessage" class="note" role="status"></p>
 </dialog>
 
 <script src="config.js"></script>
@@ -230,125 +204,117 @@ footer{padding:25px 4%;border-top:1px solid var(--line);color:var(--muted);displ
 <script>
 (function(){
   const pages=["home","uroci","kalendar","zadachi","biblioteka","predmeti"];
+  const key="teacherCabinetPlannerV1";
+  let currentKind="lesson";
+
+  function getData(){
+    try{return JSON.parse(localStorage.getItem(key))||{lessons:[],tasks:[],events:[]};}
+    catch{return {lessons:[],tasks:[],events:[]};}
+  }
+  function saveData(d){localStorage.setItem(key,JSON.stringify(d));renderPlanner();}
+  function safe(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
   function goToPage(name){
-    if(!pages.includes(name)) name="home";
-    pages.forEach(p=>{
-      const el=document.getElementById("page-"+p);
-      if(el) el.classList.toggle("active",p===name);
-    });
-    document.querySelectorAll("nav [data-page]").forEach(a=>{
-      a.classList.toggle("active",a.dataset.page===name);
-    });
+    if(!pages.includes(name))name="home";
+    pages.forEach(p=>document.getElementById("page-"+p).classList.toggle("active",p===name));
+    document.querySelectorAll("nav [data-page]").forEach(a=>a.classList.toggle("active",a.dataset.page===name));
     history.replaceState(null,"","#"+name);
     window.scrollTo({top:0,behavior:"smooth"});
   }
-  document.querySelectorAll("nav [data-page], .brand[data-page], [data-goto]").forEach(el=>{
-    el.addEventListener("click",e=>{
-      e.preventDefault();
-      goToPage(el.dataset.page||el.dataset.goto);
-    });
-  });
-  document.querySelectorAll("[data-subject]").forEach(el=>{
-    el.addEventListener("click",e=>{
-      e.preventDefault();
-      const filter=document.getElementById("categoryFilter");
-      filter.value=el.dataset.subject;
-      filter.dispatchEvent(new Event("change"));
-      goToPage("biblioteka");
-    });
-  });
-  document.getElementById("quickLesson").addEventListener("click",()=>goToPage("uroci"));
-  document.getElementById("quickTask").addEventListener("click",()=>goToPage("zadachi"));
-  document.getElementById("quickEvent").addEventListener("click",()=>goToPage("kalendar"));
-  document.getElementById("quickMaterial").addEventListener("click",()=>{
+  document.querySelectorAll("[data-page]").forEach(el=>el.addEventListener("click",e=>{
+    e.preventDefault();goToPage(el.dataset.page);
+  }));
+  document.querySelectorAll("[data-subject]").forEach(el=>el.addEventListener("click",()=>{
+    document.getElementById("categoryFilter").value=el.dataset.subject;
+    document.getElementById("categoryFilter").dispatchEvent(new Event("change"));
     goToPage("biblioteka");
-    document.getElementById("addResource").click();
-  });
-  document.getElementById("addLesson").addEventListener("click",()=>document.getElementById("quickLesson").click());
-  document.getElementById("addTask").addEventListener("click",()=>document.getElementById("quickTask").click());
-  document.getElementById("addEvent").addEventListener("click",()=>document.getElementById("quickEvent").click());
+  }));
 
-  // Допълнителни списъци за задачите и календара
-  const dataKey="teacherCabinetPlannerV1";
-  function getData(){
-    try{return JSON.parse(localStorage.getItem(dataKey))||{lessons:[],tasks:[],events:[]};}
-    catch{return {lessons:[],tasks:[],events:[]};}
+  const dlg=document.getElementById("plannerDialog");
+  function openPlanner(kind){
+    currentKind=kind;
+    const titles={lesson:"Добави урок",task:"Добави задача",event:"Добави събитие"};
+    const intros={lesson:"Запази тема и учебните цели за своя урок.",task:"Добави задача и определи срок и приоритет.",event:"Планирай среща, посещение или важно събитие."};
+    document.getElementById("plannerTitle").textContent=titles[kind];
+    document.getElementById("plannerIntro").textContent=intros[kind];
+    document.getElementById("plannerEyebrow").textContent=kind==="lesson"?"МОИТЕ УРОЦИ":kind==="task"?"МОИТЕ ЗАДАЧИ":"МОЯТ КАЛЕНДАР";
+    document.getElementById("savePlanner").textContent=kind==="lesson"?"Запази урока":kind==="task"?"Запази задачата":"Запази събитието";
+    document.getElementById("lessonFields").hidden=kind!=="lesson";
+    document.getElementById("dateFields").hidden=kind==="lesson";
+    document.getElementById("taskFields").hidden=kind!=="task";
+    document.getElementById("eventFields").hidden=kind!=="event";
+    document.getElementById("plannerForm").reset();
+    document.getElementById("plannerMessage").textContent="";
+    dlg.showModal();
   }
-  function escHtml(s){
-    return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-  }
-  function renderExtra(){
-    const d=getData();
-    const list=document.getElementById("taskPageList");
-    const active=d.tasks.filter(t=>!t.done);
-    list.innerHTML=active.length?active.map(t=>`<div style="padding:12px 0;border-bottom:1px solid #e6e1d8"><strong>${escHtml(t.title)}</strong><p>${escHtml(t.date||"Без срок")} · ${escHtml(t.priority||"Среден приоритет")}</p></div>`).join(""):"Нямаш активни задачи.";
-    document.getElementById("lessonCount").textContent=d.lessons.length;
-    document.getElementById("taskCount").textContent=active.length;
-    document.getElementById("eventCount").textContent=d.events.length;
-    const oldRefreshNote=document.getElementById("materialCount");
-    if(oldRefreshNote) oldRefreshNote.textContent=document.querySelectorAll("#resourceGrid .card").length;
-  }
+  document.querySelectorAll("[data-open-form]").forEach(b=>b.addEventListener("click",()=>openPlanner(b.dataset.openForm)));
   document.getElementById("quickAdd").addEventListener("click",()=>{
-    const c=prompt("Какво искаш да добавиш?\n1 — Урок\n2 — Задача\n3 — Събитие\n4 — Материал");
-    if(c==="1") goToPage("uroci");
-    else if(c==="2") goToPage("zadachi");
-    else if(c==="3") goToPage("kalendar");
-    else if(c==="4"){goToPage("biblioteka");document.getElementById("addResource").click();}
+    const choice=prompt("Какво искаш да добавиш?\n1 — Урок\n2 — Задача\n3 — Събитие\n4 — Материал");
+    if(choice==="1")openPlanner("lesson");
+    if(choice==="2")openPlanner("task");
+    if(choice==="3")openPlanner("event");
+    if(choice==="4"){goToPage("biblioteka");document.getElementById("addResource").click();}
+  });
+  document.getElementById("quickMaterial").addEventListener("click",()=>{
+    goToPage("biblioteka");document.getElementById("addResource").click();
+  });
+  document.getElementById("cancelPlanner").addEventListener("click",()=>dlg.close());
+
+  function renderPlanner(){
+    const d=getData();
+    document.getElementById("lessonCount").textContent=d.lessons.length;
+    document.getElementById("taskCount").textContent=d.tasks.filter(t=>!t.done).length;
+    document.getElementById("eventCount").textContent=d.events.length;
+    const materialCount=document.querySelectorAll("#resourceGrid .card").length;
+    document.getElementById("materialCount").textContent=materialCount;
+    document.getElementById("savedLessons").innerHTML=d.lessons.length?d.lessons.map((x,i)=>`<article class="card"><span class="tag">${safe(x.subject)}</span><h3>${safe(x.title)}</h3><p>${safe(x.notes||"")}</p><p>Клас: ${safe(x.grade||"Не е посочен")}</p><button class="secondary" data-remove="lessons" data-index="${i}">Изтрий</button></article>`).join(""):'<p class="empty">Все още няма запазени уроци.</p>';
+    document.getElementById("savedTasks").innerHTML=d.tasks.length?d.tasks.map((x,i)=>`<article class="card"><span class="tag">${safe(x.priority||"Среден приоритет")}</span><h3>${safe(x.title)}</h3><p>Срок: ${safe(x.date||"Не е посочен")}</p><label><input type="checkbox" data-done="${i}" ${x.done?"checked":""}> Изпълнена</label><p><button class="secondary" data-remove="tasks" data-index="${i}">Изтрий</button></p></article>`).join(""):'<p class="empty">Все още няма задачи.</p>';
+    document.getElementById("savedEvents").innerHTML=d.events.length?d.events.map((x,i)=>`<article class="card"><span class="tag">${safe(x.date||"Без дата")}</span><h3>${safe(x.title)}</h3><p>${safe(x.notes||"")}</p><p>${safe(x.location||"")}</p><button class="secondary" data-remove="events" data-index="${i}">Изтрий</button></article>`).join(""):'<p class="empty">Все още няма събития в календара.</p>';
+    const active=d.tasks.filter(t=>!t.done);
+    document.getElementById("homeTasks").innerHTML=active.length?active.slice(0,5).map(t=>`<p><strong>${safe(t.title)}</strong> · ${safe(t.date||"Без срок")}</p>`).join(""):"☑ Нямаш активни задачи.";
+  }
+  document.getElementById("plannerForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const title=document.getElementById("pTitle").value.trim();
+    if(!title){document.getElementById("plannerMessage").textContent="Моля, въведи наименование.";return;}
+    const d=getData();
+    if(currentKind==="lesson"){
+      d.lessons.push({title,subject:document.getElementById("pSubject").value,grade:document.getElementById("pGrade").value.trim(),notes:document.getElementById("pGoals").value.trim()});
+    }else if(currentKind==="task"){
+      d.tasks.push({title,date:document.getElementById("pDate").value,priority:document.getElementById("pPriority").value,done:false});
+    }else{
+      d.events.push({title,date:document.getElementById("pDate").value,location:document.getElementById("pLocation").value.trim(),notes:document.getElementById("pNotes").value.trim()});
+    }
+    try{
+      localStorage.setItem(key,JSON.stringify(d));
+      renderPlanner();
+      dlg.close();
+      goToPage(currentKind==="lesson"?"uroci":currentKind==="task"?"zadachi":"kalendar");
+    }catch(err){
+      document.getElementById("plannerMessage").textContent="Записът не беше запазен. Провери дали браузърът позволява локално съхранение.";
+    }
+  });
+  document.body.addEventListener("click",e=>{
+    const remove=e.target.closest("[data-remove]");
+    if(remove){
+      const d=getData();d[remove.dataset.remove].splice(Number(remove.dataset.index),1);saveData(d);
+    }
+  });
+  document.body.addEventListener("change",e=>{
+    if(e.target.dataset.done!==undefined){
+      const d=getData();d.tasks[Number(e.target.dataset.done)].done=e.target.checked;saveData(d);
+    }
+  });
+  document.getElementById("backupButton").addEventListener("click",()=>{
+    const blob=new Blob([JSON.stringify(getData(),null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob);const a=document.createElement("a");
+    a.href=url;a.download="uchitelski-kabinet-backup.json";a.click();URL.revokeObjectURL(url);
   });
   window.addEventListener("hashchange",()=>goToPage(location.hash.slice(1)));
   goToPage(location.hash.slice(1)||"home");
-
-  renderExtra();
-
-  // Свързваме бутоните с формулярите за добавяне
-  document.getElementById("quickLesson").onclick = () => {
-    const title = prompt("Заглавие на урока:");
-    if (!title || !title.trim()) return;
-    const subject = prompt("Предмет:", "Въведение в професията") || "";
-    const grade = prompt("Клас:", "8. клас") || "";
-    const notes = prompt("Цели и бележки:") || "";
-    const d = getData();
-    d.lessons.push({title:title.trim(),subject,grade,notes});
-    localStorage.setItem(dataKey, JSON.stringify(d));
-    renderExtra();
-    alert("Урокът е запазен!");
-  };
-
-  document.getElementById("quickTask").onclick = () => {
-    const title = prompt("Каква е задачата?");
-    if (!title || !title.trim()) return;
-    const date = prompt("Срок (ГГГГ-ММ-ДД):") || "";
-    const priority = prompt("Приоритет: Висок, Среден или Нисък", "Среден") || "Среден";
-    const d = getData();
-    d.tasks.push({title:title.trim(),date,priority,done:false});
-    localStorage.setItem(dataKey, JSON.stringify(d));
-    renderExtra();
-    alert("Задачата е запазена!");
-  };
-
-  document.getElementById("quickEvent").onclick = () => {
-    const title = prompt("Наименование на събитието:");
-    if (!title || !title.trim()) return;
-    const date = prompt("Дата (ГГГГ-ММ-ДД):");
-    const notes = prompt("Бележки:") || "";
-    const d = getData();
-    d.events.push({title:title.trim(),date:date||"",notes});
-    localStorage.setItem(dataKey, JSON.stringify(d));
-    renderExtra();
-    alert("Събитието е запазено!");
-  };
-
-  document.getElementById("addLesson").onclick = () =>
-    document.getElementById("quickLesson").click();
-  document.getElementById("addTask").onclick = () =>
-    document.getElementById("quickTask").click();
-  document.getElementById("addEvent").onclick = () =>
-    document.getElementById("quickEvent").click();
-
-  renderExtra();
+  renderPlanner();
 })();
-
 </script>
 </body>
 </html>
+
 
