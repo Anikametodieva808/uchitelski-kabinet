@@ -1,12 +1,102 @@
 <!doctype html>
-<html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Учителски кабинет | Строителна катедра</title><link rel="stylesheet" href="styles.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
-<body><header><a class="brand" href="#"><b>СК</b><span><strong>Учителски кабинет</strong><small>Строителна катедра</small></span></a><nav><a href="#biblioteka">Библиотека</a><a href="#predmeti">Предмети</a><a href="#proekti">Проекти</a></nav><button id="loginOpen">Вход за учители</button></header>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17324d">
+  <title>Учителски кабинет | Строителна катедра</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header>
+  <a class="brand" href="#" aria-label="Начало"><b>СК</b><span><strong>Учителски кабинет</strong><small>Строителна катедра</small></span></a>
+  <nav><a href="#biblioteka">Библиотека</a><a href="#predmeti">Предмети</a><a href="#proekti">Проекти</a></nav>
+  <button id="loginOpen">Вход за учители</button>
+</header>
 <main>
-<section class="hero"><div><label>ОБЩО ПРОСТРАНСТВО ЗА УЧИТЕЛИ</label><h1>Идеите се<br><em>превръщат</em> в строеж.</h1><p>Едно място за учебни материали, добри практики, ученически проекти и съвместна работа на строителната катедра.</p><a class="primary" href="#biblioteka">Разгледай ресурсите ↗</a></div><div class="heroimage"><div class="photo-caption">▦　<strong>От чертежа до обекта</strong><small>Практика · Технологии · Екип</small></div><div class="float">⌂　<b>Една катедра</b><small>Общи ресурси и идеи</small></div></div></section>
-<section class="strip"><div>01　<b>Учебни предмети</b><small>Материали по дисциплини</small></div><div>02　<b>Библиотека</b><small>Уроци, презентации, тестове</small></div><div>03　<b>Проекти</b><small>Идеи и ученически работи</small></div></section>
-<section class="section" id="biblioteka"><div class="heading"><div><label>СПОДЕЛЕНО ЗНАНИЕ</label><h2>Учебна библиотека<span>.</span></h2></div><p>Подредени ресурси за практично и уверено преподаване.</p></div><div class="tools"><input id="searchInput" placeholder="Търси материал, предмет или ключова дума…"><select id="categoryFilter"><option value="">Всички предмети</option><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select><button id="addResource">＋ Добави материал</button></div><div id="resourceGrid" class="cards"></div><p id="backendNote" class="note"></p></section>
-<section class="subjects" id="predmeti"><label>ПОДРЕДЕНИ ПО ДИСЦИПЛИНИ</label><h2>Знания с основа.</h2><div class="subjectgrid"><a href="#biblioteka" data-subject="Въведение в професията">⌂<h3>Въведение в професията</h3><p>Професии, безопасност, инструменти и организация.</p></a><a href="#biblioteka" data-subject="Техническо чертане">⌗<h3>Техническо чертане</h3><p>Линии, мащаби и геометрични построения.</p></a><a href="#biblioteka" data-subject="Строителни материали">▧<h3>Строителни материали</h3><p>Свойства, приложение и избор на материали.</p></a><a href="#biblioteka" data-subject="Геодезия">⊹<h3>Геодезия</h3><p>Измервания, инструменти и работа на терен.</p></a><a href="#biblioteka" data-subject="Практическо обучение">⚒<h3>Практическо обучение</h3><p>Работни операции и практически задачи.</p></a><a href="#proekti" class="accent">✳<h3>Проекти и състезания</h3><p>Ученически модели, състезания и добри практики.</p></a></div></section>
-<section class="section" id="proekti"><label>ОТ ИДЕЯ КЪМ РЕЗУЛТАТ</label><h2>Създаваме заедно<span>.</span></h2><div class="project"><div><label>ПРАКТИКА · ЕКИП · ИНОВАЦИЯ</label><h3>Строителството се учи най-добре с ръце и въображение.</h3><p>Споделяйте идеи за модели, мостове, макети и състезателни задачи.</p></div><div class="blueprint">⌂　╱╲<br>━━━━━━<br>╲　╱</div></div></section>
-<section class="about"><label>ЕДНА КАТЕДРА · ОБЩА ЦЕЛ</label><h2>Споделяме опит.<br><em>Изграждаме бъдеще.</em></h2><p>Общо дигитално пространство за обмен на ресурси, съвместна подготовка и съхраняване на добри практики.</p></section></main><footer><b>СК　Учителски кабинет</b><span>Създадено за споделяне на знания.</span></footer>
-<dialog id="loginDialog"><form method="dialog" class="close"><button>×</button></form><label>ПРОСТРАНСТВО ЗА ЕКИПА</label><h2>Вход за учители</h2><input id="email" type="email" placeholder="Служебен имейл"><input id="password" type="password" placeholder="Парола (поне 6 символа)"><div class="actions"><button id="signIn">Вход</button><button id="signUp" class="secondary">Създай профил</button></div><p id="authMessage" class="note"></p><small>Първо настрой Supabase според README файла. Не въвеждай истинска парола преди това.</small></dialog>
-<dialog id="resourceDialog"><form method="dialog" class="close"><button>×</button></form><label>СПОДЕЛЕНА БИБЛИОТЕКА</label><h2>Добави материал</h2><input id="rTitle" placeholder="Заглавие на материала"><select id="rCategory"><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select><select id="rType"><option>Учебен материал</option><option>Презентация</option><option>Работен лист</option><option>Тест</option><option>Практическа задача</option><option>Външна връзка</option></select><textarea id="rDescription" placeholder="Кратко описание"></textarea><input id="rUrl" type="url" placeholder="Връзка към файл (по желание)"><div class="actions"><button id="saveResource">Запази</button><button class="secondary" id="cancelResource">Отказ</button></div><p id="resourceMessage" class="note"></p></dialog><script src="config.js"></script><script src="app.js"></script></body></html>
+  <section class="hero">
+    <div class="hero-copy">
+      <label>ОБЩО ПРОСТРАНСТВО ЗА УЧИТЕЛИ</label>
+      <h1>Идеите се<br><em>превръщат</em> в строеж.</h1>
+      <p>Едно място за учебни материали, презентации, работни листове, добри практики и съвместна работа на строителната катедра.</p>
+      <a class="primary" href="#biblioteka">Разгледай ресурсите <span>↗</span></a>
+      <div class="hero-points"><span>✓ Споделени ресурси</span><span>✓ Удобно търсене</span><span>✓ Файлове на едно място</span></div>
+    </div>
+    <div class="heroimage" role="img" aria-label="Строителен обект">
+      <div class="photo-caption"><strong>От чертежа до обекта</strong><small>Практика · Технологии · Екип</small></div>
+      <div class="float"><b>Една катедра</b><small>Общи ресурси и идеи</small></div>
+    </div>
+  </section>
+  <section class="strip">
+    <div><b>01　Учебни предмети</b><small>Материали по дисциплини</small></div>
+    <div><b>02　Споделена библиотека</b><small>Уроци, презентации, тестове</small></div>
+    <div><b>03　Практика и проекти</b><small>Идеи и ученически работи</small></div>
+  </section>
+  <section class="section" id="biblioteka">
+    <div class="heading"><div><label>СПОДЕЛЕНО ЗНАНИЕ</label><h2>Учебна библиотека<span>.</span></h2></div><p>Намери материал по предмет или тема. Отваряй файловете директно или ги изтегляй.</p></div>
+    <div class="tools">
+      <input id="searchInput" type="search" placeholder="Търси материал, предмет или ключова дума…" aria-label="Търси материал">
+      <select id="categoryFilter" aria-label="Филтър по предмет">
+        <option value="">Всички предмети</option><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option>
+      </select>
+      <button id="addResource">＋ Добави материал</button>
+    </div>
+    <div id="resourceGrid" class="cards"></div>
+    <p id="emptyState" class="empty" hidden>Няма намерени материали. Промени търсенето или добави нов ресурс.</p>
+    <p id="backendNote" class="note" role="status"></p>
+  </section>
+  <section class="subjects" id="predmeti">
+    <label>ПОДРЕДЕНИ ПО ДИСЦИПЛИНИ</label><h2>Знания с основа.</h2>
+    <div class="subjectgrid">
+      <a href="#biblioteka" data-subject="Въведение в професията"><span>⌂</span><h3>Въведение в професията</h3><p>Професии, безопасност, инструменти и организация.</p></a>
+      <a href="#biblioteka" data-subject="Техническо чертане"><span>⌗</span><h3>Техническо чертане</h3><p>Линии, мащаби и геометрични построения.</p></a>
+      <a href="#biblioteka" data-subject="Строителни материали"><span>▧</span><h3>Строителни материали</h3><p>Свойства, приложение и избор на материали.</p></a>
+      <a href="#biblioteka" data-subject="Геодезия"><span>⊹</span><h3>Геодезия</h3><p>Измервания, инструменти и работа на терен.</p></a>
+      <a href="#biblioteka" data-subject="Практическо обучение"><span>⚒</span><h3>Практическо обучение</h3><p>Работни операции и практически задачи.</p></a>
+      <a href="#proekti" class="accent"><span>✳</span><h3>Проекти и състезания</h3><p>Ученически модели, състезания и добри практики.</p></a>
+    </div>
+  </section>
+  <section class="section" id="proekti">
+    <label>ОТ ИДЕЯ КЪМ РЕЗУЛТАТ</label><h2>Създаваме заедно<span>.</span></h2>
+    <div class="project"><div><label>ПРАКТИКА · ЕКИП · ИНОВАЦИЯ</label><h3>Строителството се учи най-добре с ръце и въображение.</h3><p>Споделяйте идеи за модели, мостове, макети и състезателни задачи.</p></div><div class="blueprint" aria-hidden="true">⌂　╱╲<br>━━━━━━<br>╲　╱</div></div>
+  </section>
+  <section class="about"><label>ЕДНА КАТЕДРА · ОБЩА ЦЕЛ</label><h2>Споделяме опит.<br><em>Изграждаме бъдеще.</em></h2><p>Общо дигитално пространство за обмен на ресурси, съвместна подготовка и съхраняване на добри практики.</p></section>
+</main>
+<footer><b>СК　Учителски кабинет</b><span>Създадено за споделяне на знания.</span></footer>
+
+<dialog id="loginDialog" class="modal">
+  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form>
+  <label>ПРОСТРАНСТВО ЗА ЕКИПА</label><h2>Вход за учители</h2>
+  <form id="authForm">
+    <label class="field-label" for="email">Служебен имейл</label><input id="email" type="email" autocomplete="email" placeholder="name@school.bg" required>
+    <label class="field-label" for="password">Парола</label><input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="Поне 6 символа" required>
+    <div class="actions"><button id="signIn" type="submit">Вход</button><button id="signUp" class="secondary" type="button">Създай профил</button></div>
+  </form>
+  <p id="authMessage" class="note" role="status"></p>
+</dialog>
+
+<dialog id="resourceDialog" class="modal">
+  <form method="dialog" class="close"><button aria-label="Затвори">×</button></form>
+  <label>СПОДЕЛЕНА БИБЛИОТЕКА</label><h2>Добави материал</h2>
+  <form id="resourceForm">
+    <label class="field-label" for="rTitle">Заглавие</label><input id="rTitle" placeholder="Напр. Основи на техническото чертане" required maxlength="160">
+    <label class="field-label" for="rCategory">Предмет</label>
+    <select id="rCategory"><option>Въведение в професията</option><option>Техническо чертане</option><option>Строителни материали</option><option>Геодезия</option><option>Практическо обучение</option><option>Други</option></select>
+    <label class="field-label" for="rType">Вид материал</label>
+    <select id="rType"><option>Презентация</option><option>PDF документ</option><option>Word документ</option><option>Снимка</option><option>Работен лист</option><option>Тест</option><option>Практическа задача</option><option>Външна връзка</option></select>
+    <label class="field-label" for="rDescription">Кратко описание</label><textarea id="rDescription" placeholder="Какво съдържа материалът?"></textarea>
+    <label class="field-label" for="rFile">Файл (PPTX, PDF, DOCX или снимка)</label>
+    <input id="rFile" type="file" accept=".pptx,.pdf,.docx,.jpg,.jpeg,.png,.webp">
+    <small class="file-help">Максимален размер: 50 MB. За качване е необходим учителски профил.</small>
+    <label class="field-label" for="rUrl">Или външна връзка (по желание)</label><input id="rUrl" type="url" placeholder="https://…">
+    <div class="actions"><button id="saveResource" type="submit">Запази материала</button><button class="secondary" id="cancelResource" type="button">Отказ</button></div>
+  </form>
+  <p id="resourceMessage" class="note" role="status"></p>
+</dialog>
+<script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
